@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import { discoverMovies, discoverMoviesCached } from './api';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    // discoverMovies
+    //   .then((res) => res.json())
+    //   .then((json) => setMovies(json.results))
+    //   .catch((e) => console.log(e));
+    setMovies(discoverMoviesCached.results);
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>MOVIE HOUND</h1>
+        {movies.map((movie) => (
+          <div key={movie.id}>
+            <p>{movie.original_title}</p>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+              alt={movie.original_title}
+            />
+          </div>
+        ))}
       </header>
     </div>
   );
-}
+};
 
 export default App;
