@@ -1,0 +1,11 @@
+{
+  "parser": "babel-eslint",
+  "overrides": [
+    {
+      "files": ["*-test.js", "*.spec.js"],
+      "rules": {
+        "no-anonymous-default-export": "off"
+      }
+    }
+  ]
+}

@@ -17,6 +17,7 @@ const StyledFooter = styled.div`
 
   .footer-container ul {
     list-style-type: none;
+    padding: 0;
   }
 
   .footer-container li {

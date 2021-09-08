@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledApp = styled.div`
+export default styled.div`
   header {
     margin: ${({ theme }) => theme.body.margin};
     padding: ${({ theme }) => theme.body.padding};

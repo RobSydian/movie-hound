@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { StyledApp } from './StyledApp';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <StyledApp>
+      <Router>
         <App />
-      </StyledApp>
+      </Router>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
