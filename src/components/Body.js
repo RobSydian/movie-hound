@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Discover from './Discover';
+import Home from './Home';
 
 const UnderConstruction = () => (
   <div>
@@ -14,7 +15,7 @@ const UnderConstruction = () => (
 export default () => (
   <Switch>
     <Route path="/" exact>
-      <h1 style={{ backgroundColor: 'white' }}>Home</h1>
+      <Home />
     </Route>
     <Route path="/discover">
       <Discover />
