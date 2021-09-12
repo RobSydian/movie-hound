@@ -5,7 +5,7 @@ const StyledCarouselControls = styled.div`
   overflow: visible;
   justify-content: space-between;
   position: relative;
-  top: 190px;
+  top: 140px;
   z-index: 1;
 
   & > button {

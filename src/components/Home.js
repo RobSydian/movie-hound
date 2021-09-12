@@ -17,6 +17,7 @@ export default () => {
 
   return (
     <StyledHome>
+      <h1>Discover</h1>
       <Carousel items={movies} />
     </StyledHome>
   );
