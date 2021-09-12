@@ -15,12 +15,10 @@ const StyledCarousel = styled.div`
   ${StyledCarouselItem} {
     display: inline-flex;
     flex-wrap: nowrap;
-    align-items: flex-end;
     justify-content: center;
     margin: 0 2rem;
     width: 500px;
     height: 280px;
-    background-color: green;
     color: ${({ theme }) => theme.colors.text};
   }
 `;

@@ -6,16 +6,8 @@ import StyledCarousel from './styles/StyledCarousel';
 export default ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const updateIndex = (newIndex) => {
-    // if (newIndex < 0) {
-    //   newIndex = 0;
-    // } else if (newIndex >= items.length) {
-    //   newIndex = items.length - 1;
-    // }
-
     console.log(newIndex % items.length);
-    // if (activeIndex === 19) {
-    //   setActiveIndex(0);
-    // }
+
     setActiveIndex(newIndex % items.length);
   };
 
