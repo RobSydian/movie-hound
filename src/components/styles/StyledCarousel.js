@@ -4,9 +4,10 @@ import StyledCarouselItem from './StyledCarouselItem';
 const StyledCarousel = styled.div`
   overflow: hidden;
   margin: 0 5%;
+  max-height: 40vh;
 
   #content {
-    margin: 5%;
+    margin: 5% 1%;
     transform: translateX(${({ index }) => `-${index * 35}%`});
     white-space: nowrap;
     transition: transform 0.3s;

@@ -13,6 +13,10 @@ export default ({ items }) => {
 
   return (
     <StyledCarousel index={activeIndex}>
+      <CarouselControls
+        previous={() => updateIndex(activeIndex - 1)}
+        next={() => updateIndex(activeIndex + 1)}
+      />
       <div id="content">
         {items.map((movie) => (
           <CarouselItem
@@ -23,10 +27,6 @@ export default ({ items }) => {
           />
         ))}
       </div>
-      <CarouselControls
-        previous={() => updateIndex(activeIndex - 1)}
-        next={() => updateIndex(activeIndex + 1)}
-      />
     </StyledCarousel>
   );
 };

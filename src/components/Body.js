@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Discover from './Discover';
 import Home from './Home';
+import StyledBody from './styles/StyledBody';
 
 const UnderConstruction = () => (
   <div>
@@ -13,21 +14,23 @@ const UnderConstruction = () => (
 );
 
 export default () => (
-  <Switch>
-    <Route path="/" exact>
-      <Home />
-    </Route>
-    <Route path="/discover">
-      <Discover />
-    </Route>
-    <Route path="/my-list">
-      <UnderConstruction />
-    </Route>
-    <Route path="/search">
-      <UnderConstruction />
-    </Route>
-    <Route path="/profile">
-      <UnderConstruction />
-    </Route>
-  </Switch>
+  <StyledBody>
+    <Switch>
+      <Route path="/" exact>
+        <Home />
+      </Route>
+      <Route path="/discover">
+        <Discover />
+      </Route>
+      <Route path="/my-list">
+        <UnderConstruction />
+      </Route>
+      <Route path="/search">
+        <UnderConstruction />
+      </Route>
+      <Route path="/profile">
+        <UnderConstruction />
+      </Route>
+    </Switch>
+  </StyledBody>
 );

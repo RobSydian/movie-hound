@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const StyledBody = styled.div`
+  min-height: 90vh;
   .body-main {
   }
   header h1 {

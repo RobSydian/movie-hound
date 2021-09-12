@@ -2,10 +2,16 @@ import styled from 'styled-components';
 
 const StyledCarouselControls = styled.div`
   display: flex;
-  justify-content: center;
+  overflow: visible;
+  justify-content: space-between;
+  position: relative;
+  top: 250px;
+  z-index: 1;
 
   & > button {
-    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    margin: 5px -1%;
   }
 `;
 
