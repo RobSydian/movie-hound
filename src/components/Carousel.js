@@ -23,7 +23,7 @@ export default ({ items }) => {
             width="40%"
             key={movie.id}
             title={movie.original_title}
-            image={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+            image={`https://image.tmdb.org/t/p/w400${movie.backdrop_path}`}
           />
         ))}
       </div>

@@ -8,7 +8,7 @@ const StyledCarousel = styled.div`
 
   #content {
     margin: 5% 1%;
-    transform: translateX(${({ index }) => `-${index * 35}%`});
+    transform: translateX(${({ index }) => `-${index * 40}%`});
     white-space: nowrap;
     transition: transform 0.3s;
   }
@@ -17,9 +17,9 @@ const StyledCarousel = styled.div`
     display: inline-flex;
     flex-wrap: nowrap;
     justify-content: center;
-    margin: 0 2rem;
-    width: 500px;
-    height: 280px;
+    margin: 0 1rem;
+    width: 400px;
+    height: 190px;
     color: ${({ theme }) => theme.colors.text};
   }
 `;
