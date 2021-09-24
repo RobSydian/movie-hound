@@ -3,8 +3,7 @@ import StyledCarouselItem from './StyledCarouselItem';
 
 const StyledCarousel = styled.div`
   overflow: hidden;
-  margin: 0 5%;
-  max-height: 40vh;
+  margin: 0 1%;
 
   #content {
     margin: 1%;
@@ -18,8 +17,8 @@ const StyledCarousel = styled.div`
     flex-wrap: nowrap;
     justify-content: center;
     margin: 0 1rem;
-    width: 400px;
-    height: 190px;
+    width: 300px;
+    height: 450px;
     color: ${({ theme }) => theme.colors.text};
   }
   a {

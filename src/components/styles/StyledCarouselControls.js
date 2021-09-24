@@ -5,7 +5,7 @@ const StyledCarouselControls = styled.div`
   overflow: visible;
   justify-content: space-between;
   position: relative;
-  top: 140px;
+  top: 250px;
 
   & > button {
     background-color: rgba(0, 0, 0, 0.5);

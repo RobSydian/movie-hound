@@ -8,6 +8,7 @@ export default () => {
   const [movie, setMovie] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const image_base_url = 'https://image.tmdb.org/t/p';
 
   useEffect(async () => {
     // const movie = discoverMoviesCached.results.filter(
@@ -26,12 +27,18 @@ export default () => {
   if (error) {
     return <h1 style={{ backgroundColor: 'red' }}>Error!</h1>;
   }
-
+  // const image = `${image_base_url}/${movie.poster_path}`;
+  console.log(movie);
   return loading ? (
     <h1 style={{ backgroundColor: 'white' }}>Loading...</h1>
   ) : (
     <StyledMovieProfile>
-      <h2>This movie is called {movie.title}</h2>
+      <h2>{movie.title}</h2>
+      <p></p>
+      <img
+        src={`${image_base_url}/w400/${movie.poster_path}`}
+        alt={`Poster of ${movie.title}`}
+      />
     </StyledMovieProfile>
   );
 };

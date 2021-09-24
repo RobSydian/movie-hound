@@ -10,7 +10,7 @@ export default ({ items }) => {
     setActiveIndex(newIndex % items.length);
   };
   const image_base_url = 'https://image.tmdb.org/t/p';
-  const image_width = 400;
+  const image_width = 300;
 
   return (
     <StyledCarousel index={activeIndex}>
@@ -24,7 +24,7 @@ export default ({ items }) => {
             <CarouselItem
               width="40%"
               title={movie.original_title}
-              image={`${image_base_url}/w${image_width}${movie.backdrop_path}`}
+              image={`${image_base_url}/w${image_width}${movie.poster_path}`}
               movie={movie}
             />
           </Link>
