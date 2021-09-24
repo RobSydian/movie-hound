@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Discover from './Discover';
 import Home from './Home';
+import MovieProfile from './MovieProfile';
 import StyledBody from './styles/StyledBody';
 
 const UnderConstruction = () => (
@@ -30,6 +31,9 @@ export default () => (
       </Route>
       <Route path="/profile">
         <UnderConstruction />
+      </Route>
+      <Route path={'/details/:id'}>
+        <MovieProfile />
       </Route>
     </Switch>
   </StyledBody>

@@ -16,7 +16,7 @@ const Discover = () => {
   return (
     <StyledDiscover>
       <header>
-        <h1>MOVIE HOUND</h1>
+        <h1>DISCOVER</h1>
       </header>
       <div className="body-container">
         {movies.map((movie) => (

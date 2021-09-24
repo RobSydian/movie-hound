@@ -22,6 +22,10 @@ const StyledCarousel = styled.div`
     height: 190px;
     color: ${({ theme }) => theme.colors.text};
   }
+  a {
+    color: ${({ theme }) => theme.colors.text};
+    text-decoration: none;
+  }
 `;
 
 export default StyledCarousel;

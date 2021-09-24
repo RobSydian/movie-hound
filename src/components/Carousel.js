@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import CarouselControls from './CarouselControls';
 import CarouselItem from './CarouselItem';
 import StyledCarousel from './styles/StyledCarousel';
@@ -6,10 +7,10 @@ import StyledCarousel from './styles/StyledCarousel';
 export default ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const updateIndex = (newIndex) => {
-    console.log(newIndex % items.length);
-
     setActiveIndex(newIndex % items.length);
   };
+  const image_base_url = 'https://image.tmdb.org/t/p';
+  const image_width = 400;
 
   return (
     <StyledCarousel index={activeIndex}>
@@ -19,12 +20,14 @@ export default ({ items }) => {
       />
       <div id="content">
         {items.map((movie) => (
-          <CarouselItem
-            width="40%"
-            key={movie.id}
-            title={movie.original_title}
-            image={`https://image.tmdb.org/t/p/w400${movie.backdrop_path}`}
-          />
+          <Link key={movie.id} to={'/details/' + movie.id}>
+            <CarouselItem
+              width="40%"
+              title={movie.original_title}
+              image={`${image_base_url}/w${image_width}${movie.backdrop_path}`}
+              movie={movie}
+            />
+          </Link>
         ))}
       </div>
     </StyledCarousel>
