@@ -1,5 +1,9 @@
+const apiBaseUrl = 'https://api.themoviedb.org/3';
 const bearerToken =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZDJhMWRjZTJiMjk1NWNiMDJhMzBhNTZmZjFhYTdjZiIsInN1YiI6IjYxMmI0YmYxMmM2YjdiMDA2MjcwYTJmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.R6WXtqxW2UxUnBC5jrwzY1BXqeRHVGIvZiKc47lk9og';
+const headers = {
+  Authorization: `Bearer ${bearerToken}`,
+};
 
 export const discoverMoviesCached = {
   page: 1,
@@ -349,12 +353,16 @@ export const discoverMoviesCached = {
   total_results: 10000,
 };
 
-export const discoverMovies = fetch(
-  'https://api.themoviedb.org/3/discover/movie',
-  {
+export const discoverMovies = async () => {
+  return await fetch(`${apiBaseUrl}/discover/movie`, {
     method: 'GET',
-    headers: {
-      Authorization: `Bearer ${bearerToken}`,
-    },
-  }
-);
+    headers,
+  });
+};
+
+export const getMovieById = async (id) => {
+  return await fetch(`${apiBaseUrl}/movie/${id}`, {
+    method: 'GET',
+    headers,
+  });
+};
