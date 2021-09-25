@@ -3,21 +3,18 @@ import styled from 'styled-components';
 const StyledHeader = styled.div`
   nav {
     padding: 5px;
+    display: flex;
+    justify-content: space-between;
   }
 
   .logo {
-    float: left;
     padding: 0 10px;
   }
 
   .navigation {
-    padding: 0 5% 0 55%;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin: 0;
-    background: transparent;
   }
 
   .navigation li {
