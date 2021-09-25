@@ -16,9 +16,9 @@ const StyledCarousel = styled.div`
     display: inline-flex;
     flex-wrap: nowrap;
     justify-content: center;
-    margin: 0 1rem;
+    /* margin: 0 1rem; */
     width: 300px;
-    height: 450px;
+    /* height: 450px; */
     color: ${({ theme }) => theme.colors.text};
   }
   a {

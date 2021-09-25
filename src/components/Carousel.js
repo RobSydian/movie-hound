@@ -23,7 +23,6 @@ export default ({ items }) => {
           <Link key={movie.id} to={'/details/' + movie.id}>
             <CarouselItem
               width="40%"
-              title={movie.original_title}
               image={`${image_base_url}/w${image_width}${movie.poster_path}`}
               movie={movie}
             />
