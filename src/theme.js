@@ -8,6 +8,7 @@ export const theme = {
   },
   fonts: {
     primary: 'Montserrat',
+    textSize: '20px',
   },
   body: {
     margin: '0',

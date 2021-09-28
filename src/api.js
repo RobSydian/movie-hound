@@ -366,3 +366,19 @@ export const getMovieById = async (id) => {
     headers,
   });
 };
+
+export const getMovieImageById = async (id) => {
+  return await fetch(`${apiBaseUrl}/movie/${id}/images`, {
+    method: 'GET',
+    headers,
+  });
+};
+
+//getVideo by ID TODO
+
+export const getVideoByMovieId = async (id) => {
+  return await fetch(`${apiBaseUrl}/movie/${id}/videos`, {
+    method: 'GET',
+    headers,
+  });
+};
