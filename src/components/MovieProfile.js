@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ProgressScoreCircle from './ProgressScoreCircle';
+import ProductionCompaniesPanel from './ProductionCompaniesPanel';
 import {
   discoverMoviesCached,
   getMovieById,
@@ -65,6 +66,9 @@ export default () => {
                 return ` · ${genre.name}`;
               })}
             </p>
+            <div className="body-container">
+              <p className="description">"{movie.overview}"</p>
+            </div>
           </div>
           <div className="video-container">
             <iframe
@@ -76,22 +80,21 @@ export default () => {
               allowFullScreen
               title="video"
             />
-            <div>
-              <p>
-                <ProgressScoreCircle
-                  colour="green"
-                  percentage={movie.vote_average * 10}
-                ></ProgressScoreCircle>
-                Score: {movie.vote_average * 10} - {movie.runtime}m -{' '}
-                {movie.release_date.substr(0, 4)}
-              </p>
+            <div className="detailBoard">
+              <ProgressScoreCircle
+                colour="green"
+                percentage={movie.vote_average * 10}
+              ></ProgressScoreCircle>
+              <div>- {movie.runtime}m</div>
+              <div>- {movie.release_date.substr(0, 4)}</div>
             </div>
           </div>
         </div>
-        <div className="body-container">
-          <p className="description">"{movie.overview}"</p>
-        </div>
       </div>
+      <ProductionCompaniesPanel
+        companies={movie.production_companies}
+        width={'80px'}
+      />
     </StyledMovieProfile>
   );
 };

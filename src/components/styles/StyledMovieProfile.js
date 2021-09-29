@@ -38,7 +38,7 @@ const StyledMovieProfile = styled.div`
   }
 
   .body-container {
-    width: 50%;
+    padding: 2em 1em 0 0;
     font-weight: bold;
   }
   .body-container,
@@ -48,6 +48,13 @@ const StyledMovieProfile = styled.div`
 
   .genres {
     padding-top: 2em;
+  }
+
+  .detailBoard {
+    padding: 0 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
   }
 `;
 

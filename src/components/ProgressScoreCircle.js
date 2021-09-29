@@ -29,7 +29,8 @@ const Text = ({ percentage }) => {
       y="53%"
       dominantBaseline="central"
       textAnchor="middle"
-      fontSize={'1em'}
+      fontSize={'1.2em'}
+      fill={'white'}
     >
       {percentage.toFixed(0)}
     </text>
