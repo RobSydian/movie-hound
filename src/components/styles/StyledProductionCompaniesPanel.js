@@ -5,7 +5,6 @@ const StyledProductionCompaniesPanel = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: rgba(0, 0, 0, 0.2); */
   backdrop-filter: blur(5px);
 
   img {

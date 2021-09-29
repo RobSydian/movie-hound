@@ -82,7 +82,7 @@ export default () => {
             />
             <div className="detailBoard">
               <ProgressScoreCircle
-                colour="green"
+                colour="#0ac036"
                 percentage={movie.vote_average * 10}
               ></ProgressScoreCircle>
               <div>- {movie.runtime}m</div>
