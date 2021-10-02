@@ -12,6 +12,7 @@ export default () => {
     //   .then((res) => res.json())
     //   .then((json) => setMovies(json.results))
     //   .catch((e) => console.log(e));
+
     setMovies(discoverMoviesCached.results);
   }, []);
 

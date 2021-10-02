@@ -8,8 +8,8 @@ export default ({ companies, width }) => {
       {companies.map((company) =>
         company.logo_path ? (
           <img
+            key={company.name}
             width={width}
-            key={company.id}
             src={`${image_base_url}${company.logo_path}`}
             alt={company.name}
             title={company.name}

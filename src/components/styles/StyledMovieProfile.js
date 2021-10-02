@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledMovieProfile = styled.div`
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.primary};
-  min-height: 100vh;
+  min-height: 80vh;
   background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),
     url(${({ url }) => url});
   background-position: center; /* Center the image */
@@ -50,11 +50,16 @@ const StyledMovieProfile = styled.div`
     padding-top: 2em;
   }
 
+  .highlightedData {
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
   .detailBoard {
     padding: 0 30%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 `;
 

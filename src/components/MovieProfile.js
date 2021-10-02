@@ -47,23 +47,25 @@ export default () => {
   if (error) {
     return <h1 style={{ backgroundColor: 'red' }}>Error!</h1>;
   }
-  // console.log(movie, image, video);
-  console.log(movie, video);
+
+  const profileImageUrl = image
+    ? `${image_base_url}${image.backdrops[0].file_path}`
+    : null;
+
+  const hasVideo = video?.results.length !== 0;
 
   return loading ? (
     <h1 style={{ backgroundColor: 'white' }}>Loading...</h1>
   ) : (
-    <StyledMovieProfile
-      url={`${image_base_url}${image.backdrops[2].file_path}`}
-    >
+    <StyledMovieProfile url={profileImageUrl}>
       <div className="full-container">
         <div className="top-container">
           <div className="titleSection">
             <h1>{movie.title}</h1>
             <h3>{movie.tagline}</h3>
             <p className="genres">
-              {movie.genres.map((genre) => {
-                return ` · ${genre.name}`;
+              {movie.genres.map((genre, index) => {
+                return <span key={index}> · {genre.name}</span>;
               })}
             </p>
             <div className="body-container">
@@ -71,22 +73,26 @@ export default () => {
             </div>
           </div>
           <div className="video-container">
-            <iframe
-              src={`${video_base_url}${video.results[0].key}?wmode=opaque`}
-              frameBorder="0"
-              width="600"
-              height="350"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              title="video"
-            />
+            {hasVideo && (
+              <iframe
+                src={`${video_base_url}${video.results[0].key}?wmode=opaque`}
+                frameBorder="0"
+                width="600"
+                height="350"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                title="video"
+              />
+            )}
             <div className="detailBoard">
               <ProgressScoreCircle
                 colour="#0ac036"
                 percentage={movie.vote_average * 10}
               ></ProgressScoreCircle>
-              <div>- {movie.runtime}m</div>
-              <div>- {movie.release_date.substr(0, 4)}</div>
+              <div className="highlightedData">- {movie.runtime}m</div>
+              <div className="highlightedData">
+                - {movie.release_date.substr(0, 4)}
+              </div>
             </div>
           </div>
         </div>
