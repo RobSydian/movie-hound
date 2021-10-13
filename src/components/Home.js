@@ -37,6 +37,13 @@ export default () => {
       {/* {genres.map((genre) => (
         <div>{genre.name}</div>
       ))} */}
+
+      {/* 
+      My List
+      Most Popular
+      Genres (array)
+      
+       */}
     </StyledHome>
   );
 };

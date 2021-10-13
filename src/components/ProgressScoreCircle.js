@@ -42,7 +42,7 @@ export default ({ percentage, colour }) => {
   return (
     <svg width={75} height={75}>
       <g transform={`rotate(-90 ${'100 100'})`}>
-        <Circle colour="lightgrey" />
+        <Circle colour="rgba(0,0,0,0.2)" />
         <Circle colour={colour} percentage={pct} />
       </g>
       <Text percentage={pct} />

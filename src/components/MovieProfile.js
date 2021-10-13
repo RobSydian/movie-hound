@@ -70,7 +70,7 @@ export default () => {
             </p>
             <div className={hasVideo ? 'detailBoard' : 'detailBoardNoVid'}>
               <ProgressScoreCircle
-                colour="#0ac036"
+                colour={movie.vote_average > 6 ? '#0ac036' : 'yellow'}
                 percentage={movie.vote_average * 10}
               ></ProgressScoreCircle>
               <div className="highlightedData">- {movie.runtime}m</div>
