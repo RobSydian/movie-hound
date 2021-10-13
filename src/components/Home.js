@@ -7,7 +7,7 @@ import StyledHome from './styles/StyledHome';
 export default () => {
   const [discoverMovies, setDiscoverMovies] = useState([]);
   const [genres, setGenres] = useState([]);
-
+  const [popularMovies, setPopularMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -20,12 +20,15 @@ export default () => {
     const responseGenres = await getGenres();
     setDiscoverMovies(discoverMoviesCached.results);
     setGenres(await responseGenres.json());
+    setPopularMovies(
+      discoverMoviesCached.results.filter((movie) => movie.vote_average >= 8)
+    );
 
     // if (await genre.status === 404) {
     //   setError(true);
     // }
 
-    console.log(genres);
+    console.log(discoverMoviesCached.results);
 
     setLoading(false);
   }, []);
@@ -34,10 +37,8 @@ export default () => {
     <StyledHome>
       <h1>Discover</h1>
       <Carousel items={discoverMovies} />
-      {/* {genres.map((genre) => (
-        <div>{genre.name}</div>
-      ))} */}
-
+      <h1>Popular Movies</h1>
+      <Carousel items={popularMovies} />
       {/* 
       My List
       Most Popular
