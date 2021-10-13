@@ -374,10 +374,15 @@ export const getMovieImageById = async (id) => {
   });
 };
 
-//getVideo by ID TODO
-
 export const getVideoByMovieId = async (id) => {
   return await fetch(`${apiBaseUrl}/movie/${id}/videos`, {
+    method: 'GET',
+    headers,
+  });
+};
+
+export const getGenres = async () => {
+  return await fetch(`${apiBaseUrl}/genre/movie/list`, {
     method: 'GET',
     headers,
   });
