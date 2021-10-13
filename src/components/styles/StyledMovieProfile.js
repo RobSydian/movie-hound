@@ -56,7 +56,13 @@ const StyledMovieProfile = styled.div`
   }
 
   .detailBoard {
-    padding: 0 30%;
+    padding: 0 20% 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .detailBoardNoVid {
+    padding: 0 60% 0 0;
     display: flex;
     align-items: center;
     justify-content: space-between;

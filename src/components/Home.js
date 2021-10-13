@@ -32,7 +32,7 @@ export default () => {
 
   return (
     <StyledHome>
-      <h1>Discoveru</h1>
+      <h1>Discover</h1>
       <Carousel items={discoverMovies} />
       {/* {genres.map((genre) => (
         <div>{genre.name}</div>

@@ -7,13 +7,16 @@ export default ({ companies, width }) => {
     <StyledProductionCompaniesPanel>
       {companies.map((company) =>
         company.logo_path ? (
-          <img
-            key={company.name}
-            width={width}
-            src={`${image_base_url}${company.logo_path}`}
-            alt={company.name}
-            title={company.name}
-          />
+          <ul>
+            <li key={company.name}>
+              <img
+                width={width}
+                src={`${image_base_url}${company.logo_path}`}
+                alt={company.name}
+                title={company.name}
+              />
+            </li>
+          </ul>
         ) : (
           <></>
         )

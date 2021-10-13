@@ -68,6 +68,16 @@ export default () => {
                 return <span key={index}> · {genre.name}</span>;
               })}
             </p>
+            <div className={hasVideo ? 'detailBoard' : 'detailBoardNoVid'}>
+              <ProgressScoreCircle
+                colour="#0ac036"
+                percentage={movie.vote_average * 10}
+              ></ProgressScoreCircle>
+              <div className="highlightedData">- {movie.runtime}m</div>
+              <div className="highlightedData">
+                - {movie.release_date.substr(0, 4)}
+              </div>
+            </div>
             <div className="body-container">
               <p className="description">"{movie.overview}"</p>
             </div>
@@ -84,23 +94,13 @@ export default () => {
                 title="video"
               />
             )}
-            <div className="detailBoard">
-              <ProgressScoreCircle
-                colour="#0ac036"
-                percentage={movie.vote_average * 10}
-              ></ProgressScoreCircle>
-              <div className="highlightedData">- {movie.runtime}m</div>
-              <div className="highlightedData">
-                - {movie.release_date.substr(0, 4)}
-              </div>
-            </div>
           </div>
         </div>
       </div>
-      <ProductionCompaniesPanel
+      {/* <ProductionCompaniesPanel
         companies={movie.production_companies}
         width={'80px'}
-      />
+      /> */}
     </StyledMovieProfile>
   );
 };
