@@ -7,7 +7,7 @@ const StyledCarousel = styled.div`
 
   #content {
     margin: 1%;
-    transform: translateX(${({ index }) => `-${index * 20}%`});
+    transform: translateX(${({ index }) => `-${index * 18}%`});
     white-space: nowrap;
     transition: transform 0.3s;
   }

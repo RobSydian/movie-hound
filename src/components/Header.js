@@ -20,6 +20,9 @@ export default () => (
           <Link to="/my-list">My List</Link>
         </li>
         <li>
+          <Link to="/my-list">Genres</Link>
+        </li>
+        <li>
           <a href="/search">Search</a>
         </li>
         <li>

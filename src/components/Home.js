@@ -8,6 +8,7 @@ export default () => {
   const [discoverMovies, setDiscoverMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -18,8 +19,9 @@ export default () => {
     //   .catch((e) => console.log(e));
 
     const responseGenres = await getGenres();
+    // setGenres(await responseGenres.json());
+
     setDiscoverMovies(discoverMoviesCached.results);
-    setGenres(await responseGenres.json());
     setPopularMovies(
       discoverMoviesCached.results.filter((movie) => movie.vote_average >= 8)
     );
@@ -28,7 +30,7 @@ export default () => {
     //   setError(true);
     // }
 
-    console.log(discoverMoviesCached.results);
+    console.log(await responseGenres.json());
 
     setLoading(false);
   }, []);
@@ -41,7 +43,6 @@ export default () => {
       <Carousel items={popularMovies} />
       {/* 
       My List
-      Most Popular
       Genres (array)
       
        */}
