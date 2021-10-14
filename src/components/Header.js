@@ -20,7 +20,7 @@ export default () => (
           <Link to="/my-list">My List</Link>
         </li>
         <li>
-          <Link to="/my-list">Genres</Link>
+          <Link to="/genres">Genres</Link>
         </li>
         <li>
           <Link to="/profile">

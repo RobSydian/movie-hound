@@ -360,6 +360,16 @@ export const discoverMovies = async () => {
   });
 };
 
+// export const discoverMoviesByGenre = async (genreIds) => {
+//   return await fetch(
+//     `${apiBaseUrl}/discover/movie?with_genres=${genreIds.join()}`,
+//     {
+//       method: 'GET',
+//       headers,
+//     }
+//   );
+// };
+
 export const getMovieById = async (id) => {
   return await fetch(`${apiBaseUrl}/movie/${id}`, {
     method: 'GET',

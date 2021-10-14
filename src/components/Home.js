@@ -6,7 +6,7 @@ import StyledHome from './styles/StyledHome';
 
 export default () => {
   const [discoverMovies, setDiscoverMovies] = useState([]);
-  const [genres, setGenres] = useState([]);
+  // const [genres, setGenres] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
 
   const [loading, setLoading] = useState(true);
@@ -43,7 +43,6 @@ export default () => {
       <Carousel items={popularMovies} />
       {/* 
       My List
-      Genres (array)
       
        */}
     </StyledHome>
