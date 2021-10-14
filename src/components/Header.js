@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { FaUserSecret, FaSistrix } from 'react-icons/fa';
 import Logo from '../images/moviehoundlogo.png';
 import StyledHeader from './styles/StyledHeader';
 
@@ -23,10 +23,14 @@ export default () => (
           <Link to="/my-list">Genres</Link>
         </li>
         <li>
-          <a href="/search">Search</a>
+          <Link to="/profile">
+            <FaSistrix />
+          </Link>
         </li>
         <li>
-          <Link to="/profile">User</Link>
+          <Link to="/profile">
+            <FaUserSecret />
+          </Link>
         </li>
       </ul>
     </nav>

@@ -8,13 +8,14 @@ const StyledHeader = styled.div`
   }
 
   .logo {
-    padding: 0 10px;
+    padding: 1em 0 0 5em;
   }
 
   .navigation {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-right: 5em;
   }
 
   .navigation li {
