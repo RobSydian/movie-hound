@@ -5,6 +5,7 @@ import Discover from './Discover';
 import Genres from './Genres';
 import Home from './Home';
 import MovieProfile from './MovieProfile';
+import SearchPage from './SearchPage';
 import StyledBody from './styles/StyledBody';
 
 const UnderConstruction = () => (
@@ -28,10 +29,10 @@ export default () => (
         <UnderConstruction />
       </Route>
       <Route path="/search">
-        <UnderConstruction />
+        <SearchPage />
       </Route>
       <Route path="/profile">
-        <UnderConstruction />
+        <SearchPage />
       </Route>
       <Route path={'/details/:id'}>
         <MovieProfile />

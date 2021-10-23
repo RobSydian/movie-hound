@@ -23,7 +23,7 @@ export default () => (
           <Link to="/genres">Genres</Link>
         </li>
         <li>
-          <Link to="/profile">
+          <Link to="/search">
             <FaSistrix />
           </Link>
         </li>

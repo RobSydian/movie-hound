@@ -397,3 +397,10 @@ export const getGenres = async () => {
     headers,
   });
 };
+
+export const searchMovie = async () => {
+  return await fetch(`${apiBaseUrl}/search/movie`, {
+    method: 'GET',
+    headers,
+  });
+};
