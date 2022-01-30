@@ -28,7 +28,7 @@ export default () => (
           </Link>
         </li>
         <li>
-          <Link to="/profile">
+          <Link to="/UserRegistrationForm">
             <FaUserSecret />
           </Link>
         </li>

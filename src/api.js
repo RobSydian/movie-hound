@@ -1,4 +1,5 @@
 const apiBaseUrl = 'https://api.themoviedb.org/3';
+const backendBaseUrl = 'https://localhost:8000/api';
 const bearerToken =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZDJhMWRjZTJiMjk1NWNiMDJhMzBhNTZmZjFhYTdjZiIsInN1YiI6IjYxMmI0YmYxMmM2YjdiMDA2MjcwYTJmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.R6WXtqxW2UxUnBC5jrwzY1BXqeRHVGIvZiKc47lk9og';
 const headers = {
@@ -402,5 +403,13 @@ export const searchMovie = async () => {
   return await fetch(`${apiBaseUrl}/search/movie`, {
     method: 'GET',
     headers,
+  });
+};
+
+// POST user registration form data
+export const sendRegistrationFormData = async (body) => {
+  return await fetch(`${backendBaseUrl}/user`, {
+    method: 'POST',
+    body: body,
   });
 };

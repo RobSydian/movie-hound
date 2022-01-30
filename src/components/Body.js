@@ -6,6 +6,7 @@ import Genres from './Genres';
 import Home from './Home';
 import MovieProfile from './MovieProfile';
 import SearchPage from './SearchPage';
+import UserRegistrationForm from './UserRegistrationForm';
 import StyledBody from './styles/StyledBody';
 
 const UnderConstruction = () => (
@@ -39,6 +40,9 @@ export default () => (
       </Route>
       <Route path={'/genres'}>
         <Genres />
+      </Route>
+      <Route path={'/userRegistrationForm'}>
+        <UserRegistrationForm />
       </Route>
     </Switch>
   </StyledBody>
