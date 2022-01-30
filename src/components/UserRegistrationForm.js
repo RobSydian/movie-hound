@@ -1,30 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import StyledUserRegistrationForm from './styles/StyledUserRegistrationForm';
+import Button from './Button';
 import { sendRegistrationFormData } from '../api';
-
-// let handleSubmit = async (e) => {
-//   e.preventDefault();
-//   try {
-//     let res = await fetch('https://httpbin.org/post', {
-//       method: 'POST',
-//       body: JSON.stringify(body),
-//     });
-//     let resJson = await res.json();
-//     if (res.status === 200) {
-//       setName('');
-//       setSurname1('');
-//       setSurname2('');
-//       setEmail('');
-//       setPassword('');
-//       setMessage('User created successfully');
-//     } else {
-//       setMessage('Some error occured');
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
 
 export default () => {
   const [name, setName] = useState('');
@@ -71,38 +49,55 @@ export default () => {
         <h1>Registration Form</h1>
         <div className="message">{message ? <p>{message}</p> : null}</div>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={name}
-            placeholder="Name"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="text"
-            value={surname1}
-            placeholder="first surname"
-            onChange={(e) => setSurname1(e.target.value)}
-          />
-          <input
-            type="text"
-            value={surname2}
-            placeholder="second surname"
-            onChange={(e) => setSurname2(e.target.value)}
-          />
-          <input
-            type="text"
-            value={email}
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="text"
-            value={password}
-            placeholder="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className="formInput">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="formInput">
+            <label htmlFor="surname1">First surname</label>
+            <input
+              type="text"
+              id="surname1"
+              value={surname1}
+              onChange={(e) => setSurname1(e.target.value)}
+            />
+          </div>
+          <div className="formInput">
+            <label htmlFor="surname2">Second surname</label>
+            <input
+              type="text"
+              id="surname2"
+              value={surname2}
+              onChange={(e) => setSurname2(e.target.value)}
+            />
+          </div>
+          <div className="formInput">
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="formInput">
+            <label htmlFor="password">Password</label>
+            <input
+              type="text"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
 
-          <button type="submit">Register</button>
+          <Button type="submit" label="Register" classes="primaryButton">
+            Register
+          </Button>
         </form>
       </div>
     </StyledUserRegistrationForm>
