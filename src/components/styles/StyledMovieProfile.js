@@ -9,9 +9,10 @@ const StyledMovieProfile = styled.div`
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
+  background-attachment: fixed;
 
   .full-container {
-    width: 100%;
+    width: auto;
     padding: 2% 0 0 10%;
     min-height: 70vh;
   }
@@ -22,7 +23,10 @@ const StyledMovieProfile = styled.div`
     justify-content: space-between;
     align-items: flex-start;
   }
+  .video-container {
+    min-height: 50%;
 
+  }
   .video-container p {
     font-size: 20px;
     text-align: center;
@@ -67,6 +71,26 @@ const StyledMovieProfile = styled.div`
     align-items: center;
     justify-content: space-between;
   }
+
+  .movieTrailer {
+    animation: showTrailer 1s ease-out forwards;
+  }
+
+  @keyframes showTrailer {
+    0% {
+      opacity: 0;
+      transform: translateX(100%)
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(50%)
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0)
+    }
+  }
+
 `;
 
 export default StyledMovieProfile;

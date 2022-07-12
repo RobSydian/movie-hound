@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Transition from 'react-transition-group/Transition';
 import { useParams } from 'react-router-dom';
 import ProgressScoreCircle from './ProgressScoreCircle';
 import ProductionCompaniesPanel from './ProductionCompaniesPanel';
@@ -9,6 +10,8 @@ import {
   getVideoByMovieId,
 } from '../api';
 import StyledMovieProfile from './styles/StyledMovieProfile';
+import RiseLoader from "react-spinners/RiseLoader";
+
 
 export default () => {
   const { id } = useParams();
@@ -55,7 +58,7 @@ export default () => {
   const hasVideo = video?.results.length !== 0;
 
   return loading ? (
-    <h1 style={{ backgroundColor: 'white' }}>Loading...</h1>
+    <RiseLoader color="#522B47" cssOverride={{ margin: "100px 40%" }} loading={loading} size={50} />
   ) : (
     <StyledMovieProfile url={profileImageUrl}>
       <div className="full-container">
@@ -83,17 +86,29 @@ export default () => {
             </div>
           </div>
           <div className="video-container">
-            {hasVideo && (
-              <iframe
-                src={`${video_base_url}${video.results[0].key}?wmode=opaque`}
-                frameBorder="0"
-                width="600"
-                height="350"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-                title="video"
-              />
-            )}
+            <Transition
+              in={hasVideo}
+              timeout={1000}
+              mountOnEnter
+            >
+              {state => {
+                const frameClasses = state === 'entered' ? 'movieTrailer' : '';
+                console.log('hi', state)
+                return (
+
+                  < iframe
+                    className={frameClasses}
+                    src={`${video_base_url}${video.results[0].key}?wmode=opaque`}
+                    frameBorder="0"
+                    width="600"
+                    height="350"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                    title="video"
+                  />
+                )
+              }}
+            </Transition>
           </div>
         </div>
       </div>
