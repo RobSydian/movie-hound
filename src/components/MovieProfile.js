@@ -3,6 +3,8 @@ import Transition from 'react-transition-group/Transition';
 import { useParams } from 'react-router-dom';
 import ProgressBar from 'react-animated-progress-bar';
 import ProductionCompaniesPanel from './ProductionCompaniesPanel';
+import Button from './Button';
+
 import {
   discoverMoviesCached,
   getMovieById,
@@ -110,6 +112,7 @@ export default () => {
                 )
               }}
             </Transition>
+            <Button type="button" label="+ Add to List" classes="addToList" />
           </div>
         </div>
       </div>
