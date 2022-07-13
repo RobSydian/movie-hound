@@ -14,7 +14,7 @@ const StyledMovieProfile = styled.div`
   .full-container {
     width: auto;
     padding: 2% 0 0 10%;
-    min-height: 70vh;
+    min-height: 80vh;
   }
 
   .top-container {
@@ -76,6 +76,8 @@ const StyledMovieProfile = styled.div`
     animation: showTrailer 1s ease-out forwards;
   }
 
+  //Animations
+  
   @keyframes showTrailer {
     0% {
       opacity: 0;

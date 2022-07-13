@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Transition from 'react-transition-group/Transition';
 import { useParams } from 'react-router-dom';
 import ProgressScoreCircle from './ProgressScoreCircle';
+import ProgressBar from 'react-animated-progress-bar';
 import ProductionCompaniesPanel from './ProductionCompaniesPanel';
 import {
   discoverMoviesCached,
@@ -55,10 +56,14 @@ export default () => {
     ? `${image_base_url}${image.backdrops[0].file_path}`
     : null;
 
+
+  const percentConverter = (value) => {
+    return (value * 10).toString()
+  }
   const hasVideo = video?.results.length !== 0;
 
   return loading ? (
-    <RiseLoader color="#522B47" cssOverride={{ margin: "100px 40%" }} loading={loading} size={50} />
+    <RiseLoader color="#522B47" cssOverride={{ margin: "40% 30%", position: "absolute", top: "-50%", left: "10%%" }} loading={loading} size={50} />
   ) : (
     <StyledMovieProfile url={profileImageUrl}>
       <div className="full-container">
@@ -72,10 +77,11 @@ export default () => {
               })}
             </p>
             <div className={hasVideo ? 'detailBoard' : 'detailBoardNoVid'}>
-              <ProgressScoreCircle
+              <ProgressBar width="230" trackWidth="13" percentage={percentConverter(movie.vote_average)} />
+              {/* <ProgressScoreCircle
                 colour={movie.vote_average > 6 ? '#0ac036' : 'yellow'}
                 percentage={movie.vote_average * 10}
-              ></ProgressScoreCircle>
+              ></ProgressScoreCircle> */}
               <div className="highlightedData">- {movie.runtime}m</div>
               <div className="highlightedData">
                 - {movie.release_date.substr(0, 4)}

@@ -31,7 +31,6 @@ export default () => {
     //   setError(true);
     // }
 
-    console.log(await responseGenres.json());
 
     setLoading(false);
   }, []);
@@ -39,10 +38,10 @@ export default () => {
   return (
     <StyledHome>
       <h1>Discover</h1>
-      <RiseLoader color="#522B47" cssOverride={{margin:"100px 40%"}} loading={loading} size={50} />
+      <RiseLoader color="#522B47" cssOverride={{ margin: "100px 40%" }} loading={loading} size={50} />
       {!loading && <Carousel items={discoverAllMovies} />}
       <h1>Popular Movies</h1>
-      <RiseLoader color="#522B47" cssOverride={{margin:"100px 40%"}} loading={loading} size={50} />
+      <RiseLoader color="#522B47" cssOverride={{ margin: "100px 40%" }} loading={loading} size={50} />
       {!loading && <Carousel items={popularMovies} />}
 
       {/* 
