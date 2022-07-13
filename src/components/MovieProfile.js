@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import ProgressBar from 'react-animated-progress-bar';
 import ProductionCompaniesPanel from './ProductionCompaniesPanel';
 import Button from './Button';
+import { addToListActions } from '../store/add-to-list-slice';
+import { useDispatch } from 'react-redux';
 
 import {
   discoverMoviesCached,
@@ -63,6 +65,15 @@ export default () => {
 
   const hasVideo = video?.results.length !== 0;
   console.log(movie);
+
+  const dispatch = useDispatch();
+
+  const addToListHandler = () => {
+    dispatch(addToListActions.addMovie(movie))
+    console.log('clicked!')
+
+  }
+
   return loading ? (
     <RiseLoader color="#522B47" cssOverride={{ margin: "40% 30%", position: "absolute", top: "-50%", left: "10%%" }} loading={loading} size={50} />
   ) : (
@@ -112,7 +123,7 @@ export default () => {
                 )
               }}
             </Transition>
-            <Button type="button" label="+ Add to List" classes="addToList" />
+            <Button type="button" func={addToListHandler} label="+ Add to List" classes="addToList" />
           </div>
         </div>
       </div>

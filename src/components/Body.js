@@ -8,6 +8,7 @@ import MovieProfile from './MovieProfile';
 import SearchPage from './SearchPage';
 import UserRegistrationForm from './UserRegistrationForm';
 import StyledBody from './styles/StyledBody';
+import MyList from './MyList';
 
 const UnderConstruction = () => (
   <div>
@@ -27,7 +28,7 @@ export default () => (
         <Discover />
       </Route>
       <Route path="/my-list">
-        <UnderConstruction />
+        <MyList />
       </Route>
       <Route path="/search">
         <SearchPage />
