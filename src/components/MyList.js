@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useEffect, useRef } from "react";
 
 import StyledMyList from "./styles/StyledMyList";
 import Carousel from "./UI/Carousel";

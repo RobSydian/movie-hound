@@ -7,11 +7,11 @@ export const theme = {
     contrast: '#8DAA9D',
   },
   fonts: {
-    primary: 'Montserrat',
+    primary: 'Bebas Neue',
     textSize: '20px',
   },
   body: {
     margin: '0',
     padding: '20px 0',
-  },
+  }
 };

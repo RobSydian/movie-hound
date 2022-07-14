@@ -6,6 +6,7 @@ import ProductionCompaniesPanel from './ProductionCompaniesPanel';
 import Button from './UI/Button';
 import { addToListActions } from '../store/add-to-list-slice';
 import { useDispatch } from 'react-redux';
+import Notification from './UI/Notification';
 
 import {
   discoverMoviesCached,
@@ -69,7 +70,10 @@ export default () => {
   const dispatch = useDispatch();
 
   const addToListHandler = () => {
-    dispatch(addToListActions.addMovie(movie))
+    dispatch(addToListActions.addMovie(movie));
+//add NotificationMaker here
+    Notification({message:'Successfully added to list', classes:'notification-success'})
+    // return <Notification message='Successfully added to list' classes='notification-success'/>
   }
 
   return loading ? (

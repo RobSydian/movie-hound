@@ -1,0 +1,20 @@
+
+.notification-success {
+  color: white;
+  background-color: #39bb39;
+}
+
+.notification-danger {
+  color: white;
+  background-color: rgb(216, 9, 9);
+}
+
+.notification-warning {
+  color: white;
+  background-color: rgb(221, 221, 43);
+}
+
+.notification-info {
+  color: white;
+  background-color: rgb(35, 35, 236);
+}
