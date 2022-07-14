@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
 
 import StyledMyList from "./styles/StyledMyList";
-import Carousel from "./Carousel";
+import Carousel from "./UI/Carousel";
 
 
 export default function MyList() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import StyledCarouselControls from './styles/StyledCarouselControls';
+import StyledCarouselControls from '../styles/StyledCarouselControls';
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 import { IconContext } from 'react-icons/lib';
 

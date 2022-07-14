@@ -1,6 +1,6 @@
 import React from 'react';
 
-import StyledButton from './styles/StyledButton';
+import StyledButton from '../styles/StyledButton';
 
 export default ({ type, label, classes, func }) => {
   console.log(type, label, classes);

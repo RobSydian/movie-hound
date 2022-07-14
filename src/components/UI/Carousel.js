@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import CarouselControls from './CarouselControls';
-import CarouselItem from './CarouselItem';
-import StyledCarousel from './styles/StyledCarousel';
+import CarouselControls from '../UI/CarouselControls';
+import CarouselItem from '../CarouselItem';
+import StyledCarousel from '../styles/StyledCarousel';
 
 export default ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);

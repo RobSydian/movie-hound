@@ -3,7 +3,7 @@ import Transition from 'react-transition-group/Transition';
 import { useParams } from 'react-router-dom';
 import ProgressBar from 'react-animated-progress-bar';
 import ProductionCompaniesPanel from './ProductionCompaniesPanel';
-import Button from './Button';
+import Button from './UI/Button';
 import { addToListActions } from '../store/add-to-list-slice';
 import { useDispatch } from 'react-redux';
 
@@ -70,8 +70,6 @@ export default () => {
 
   const addToListHandler = () => {
     dispatch(addToListActions.addMovie(movie))
-    console.log('clicked!')
-
   }
 
   return loading ? (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Carousel from './Carousel';
+import Carousel from './UI/Carousel';
 import RiseLoader from "react-spinners/RiseLoader";
 import { discoverMoviesCached, discoverMovies, getGenres } from '../api';
 import StyledHome from './styles/StyledHome';

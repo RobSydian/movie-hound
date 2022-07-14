@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import StyledUserRegistrationForm from './styles/StyledUserRegistrationForm';
-import Button from './Button';
+import Button from './UI/Button';
 import { sendRegistrationFormData } from '../api';
 
 export default () => {

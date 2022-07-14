@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { getGenres, discoverMovies, discoverMoviesByGenre } from '../api';
-import Carousel from './Carousel';
+import Carousel from './UI/Carousel';
 import StyledGenres from './styles/StyledGenres';
 
 export default () => {
