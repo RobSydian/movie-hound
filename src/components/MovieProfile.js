@@ -7,6 +7,8 @@ import Button from './UI/Button';
 import { addToListActions } from '../store/fav-movie-list-handler-slice';
 import { useDispatch } from 'react-redux';
 import Notification from './UI/Notification';
+import { useSelector } from "react-redux";
+
 
 import {
   discoverMoviesCached,
@@ -23,11 +25,18 @@ export default () => {
   const [movie, setMovie] = useState();
   const [image, setImage] = useState();
   const [video, setVideo] = useState();
+  const [isMovieAdded, setIsMovieAdded] = useState(false);
+
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const image_base_url = 'https://image.tmdb.org/t/p/original';
   const video_base_url = 'https://www.youtube.com/embed/';
+
+
+  const moviesList = useSelector(state => state.handleList.moviesList);
+  const existingMovie = moviesList.find((listMovie) => movie.id === listMovie.id)
+  console.log('Existing movie:', existingMovie);
 
   useEffect(async () => {
     // const movie = discoverMoviesCached.results.filter(
@@ -49,7 +58,9 @@ export default () => {
       setError(true);
     }
 
+    
     setLoading(false);
+
   }, []);
 
   if (error) {

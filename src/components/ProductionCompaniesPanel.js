@@ -8,7 +8,7 @@ export default ({ companies, width }) => {
       <section>
         {companies.map((company) =>
           company.logo_path ? (
-            <div key={company.name}>
+            <div key={company.id}>
               <img
                 width={width}
                 src={`${image_base_url}${company.logo_path}`}
@@ -16,9 +16,7 @@ export default ({ companies, width }) => {
                 title={company.name}
               />
             </div>
-          ) : (
-            <></>
-          )
+          ) : <div key={company.id}></div>
         )}
       </section>
     </StyledProductionCompaniesPanel>
