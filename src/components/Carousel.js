@@ -11,13 +11,14 @@ export default ({ items }) => {
   };
   const image_base_url = 'https://image.tmdb.org/t/p';
   const image_width = 300;
+  const showControls = items.length > 5 ? true : false;
 
   return (
     <StyledCarousel index={activeIndex}>
-      <CarouselControls
+      {showControls && <CarouselControls
         previous={() => updateIndex(activeIndex - 1)}
         next={() => updateIndex(activeIndex + 1)}
-      />
+      />}
       <div id="content">
         {items.map((movie) => (
           <Link key={movie.id} to={'/details/' + movie.id}>
