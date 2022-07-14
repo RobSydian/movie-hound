@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import ProgressBar from 'react-animated-progress-bar';
 import ProductionCompaniesPanel from './ProductionCompaniesPanel';
 import Button from './UI/Button';
-import { addToListActions } from '../store/add-to-list-slice';
+import { addToListActions } from '../store/fav-movie-list-handler-slice';
 import { useDispatch } from 'react-redux';
 import Notification from './UI/Notification';
 
@@ -71,9 +71,8 @@ export default () => {
 
   const addToListHandler = () => {
     dispatch(addToListActions.addMovie(movie));
-//add NotificationMaker here
+
     Notification({message:'Successfully added to list', classes:'notification-success'})
-    // return <Notification message='Successfully added to list' classes='notification-success'/>
   }
 
   return loading ? (

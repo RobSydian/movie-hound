@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const addToListSlice = createSlice({
+const movieListHandler = createSlice({
     name: 'user movies list',
     initialState: {
         moviesList: [],
@@ -32,6 +32,6 @@ const addToListSlice = createSlice({
     }
 })
 
-export const addToListActions = addToListSlice.actions;
+export const addToListActions = movieListHandler.actions;
 
-export default addToListSlice;
+export default movieListHandler;

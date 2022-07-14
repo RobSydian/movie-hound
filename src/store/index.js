@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import addToListSlice from './add-to-list-slice'
+import movieListHandler from './fav-movie-list-handler-slice'
 
 const store = configureStore({
-    reducer: { addToList: addToListSlice.reducer }
+    reducer: { addToList: movieListHandler.reducer }
 })
 
 export default store;

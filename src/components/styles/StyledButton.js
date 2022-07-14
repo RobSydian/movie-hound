@@ -7,12 +7,12 @@ const StyledButton = styled.button`
   border-radius: 1rem;
 
   &.addToList {
-    background-color: goldenrod;
+    background-color: gold;
     font-weight: bold;
   }
 
   &.addToList:hover {
-    background-color: gold;
+    background-color: goldenrod;
   }
 `;
 
