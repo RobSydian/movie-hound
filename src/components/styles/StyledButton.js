@@ -14,6 +14,16 @@ const StyledButton = styled.button`
   &.addToList:hover {
     background-color: goldenrod;
   }
+
+  &.removeFromList {
+    background-color: #EE3838;
+    font-weight: bold;
+    color: white;
+  }
+
+  &.removeFromList:hover {
+    background-color: #B41111;
+  }
 `;
 
 export default StyledButton;

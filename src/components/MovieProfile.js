@@ -26,22 +26,18 @@ export default () => {
   const [image, setImage] = useState();
   const [video, setVideo] = useState();
   const [isMovieAdded, setIsMovieAdded] = useState(false);
+  const [movieInList, setMovieInList] = useState(false);
 
 
+  const moviesList = useSelector(state => state.handleList.moviesList);
+  const favMovies = useSelector(state => state.handleList.favMovies);
+  
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const image_base_url = 'https://image.tmdb.org/t/p/original';
   const video_base_url = 'https://www.youtube.com/embed/';
 
-
-  const moviesList = useSelector(state => state.handleList.moviesList);
-  const existingMovie = moviesList.find((listMovie) => movie.id === listMovie.id)
-  console.log('Existing movie:', existingMovie);
-
   useEffect(async () => {
-    // const movie = discoverMoviesCached.results.filter(
-    //   (movie) => movie.id == id
-    // );
     const response = await getMovieById(id);
     const imageResponse = await getMovieImageById(id);
     const videoResponse = await getVideoByMovieId(id);
@@ -49,19 +45,24 @@ export default () => {
     if (response.status === 404) {
       setError(true);
     }
-
-    setMovie(await response.json());
+    const movieResponse = await response.json()
+    setMovie(movieResponse);
     setImage(await imageResponse.json());
     setVideo(await videoResponse.json());
 
     if (imageResponse.status === 404) {
       setError(true);
     }
-
     
-    setLoading(false);
+    
+    if (favMovies.includes(movieResponse.id)) {
+      setIsMovieAdded(true)
+    }
 
+    setLoading(false);
   }, []);
+  
+  
 
   if (error) {
     return <h1 style={{ backgroundColor: 'red' }}>Error!</h1>;
@@ -76,7 +77,6 @@ export default () => {
   }
 
   const hasVideo = video?.results.length !== 0;
-  console.log(movie);
 
   const dispatch = useDispatch();
 
@@ -84,10 +84,14 @@ export default () => {
     dispatch(addToListActions.addMovie(movie));
 
     Notification({message:'Successfully added to list', classes:'notification-success'})
+    setIsMovieAdded(true);
   }
 
+  // const listedMovie = movie ? favMovies.includes(movie.id) : 'nope'
+  // console.log(favMovies, movie ? movie.id : '', listedMovie)
+
   return loading ? (
-    <RiseLoader color="#522B47" cssOverride={{ margin: "40% 30%", position: "absolute", top: "-50%", left: "10%%" }} loading={loading} size={50} />
+    <RiseLoader color="#522B47" cssOverride={{ margin: "40% 30%", position: "absolute", top: "-50%", left: "10%" }} loading={loading} size={50} />
   ) : (
     <StyledMovieProfile url={profileImageUrl}>
       <div className="full-container">
@@ -119,7 +123,6 @@ export default () => {
             >
               {state => {
                 const frameClasses = state === 'entered' ? 'movieTrailer' : '';
-                console.log('hi', state)
                 return (
 
                   < iframe
@@ -135,7 +138,8 @@ export default () => {
                 )
               }}
             </Transition>
-            <Button type="button" func={addToListHandler} label="+ Add to List" classes="addToList" />
+            {!isMovieAdded && <Button type="button" func={addToListHandler} label="+ Add to List" classes="addToList" />}
+            {isMovieAdded && <Button type="button" label="Remove from List" classes="removeFromList" />}
           </div>
         </div>
       </div>

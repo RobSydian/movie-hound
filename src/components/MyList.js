@@ -6,7 +6,7 @@ import Carousel from "./UI/Carousel";
 
 
 export default function MyList() {
-    const moviesList = useSelector(state => state.addToList.moviesList);
+    const moviesList = useSelector(state => state.handleList.moviesList);
     const image_base_url = 'https://image.tmdb.org/t/p';
     const image_width = 300;
 
