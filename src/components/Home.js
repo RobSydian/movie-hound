@@ -11,21 +11,25 @@ export default () => {
   const [popularMovies, setPopularMovies] = useState([]);
 
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
+
 
   useEffect(async () => {
-    discoverMovies()
+
+      discoverMovies()
       .then((res) => res.json())
       .then((json) => setDiscoverAllMovies(json.results))
       .catch((e) => console.log(e));
+    
 
-    const responseGenres = await getGenres();
+    // const responseGenres = await getGenres();
     // setGenres(await responseGenres.json());
 
     // setDiscoverAllMovies(discoverMoviesCached.results);
-    setPopularMovies(
-      discoverMoviesCached.results.filter((movie) => movie.vote_average >= 8)
-    );
+      setPopularMovies(
+        discoverMoviesCached.results.filter((movie) => movie.vote_average >= 8)
+      );
+    
 
     // if (await genre.status === 404) {
     //   setError(true);
@@ -33,11 +37,14 @@ export default () => {
 
 
     setLoading(false);
+
+
   }, []);
 
   return (
     <StyledHome>
       <h1>Discover</h1>
+      {/* {error && <h1>{error}</h1>} */}
       <RiseLoader color="#522B47" cssOverride={{ margin: "100px 40%" }} loading={loading} size={50} />
       {!loading && <Carousel items={discoverAllMovies} />}
       <h1>Popular Movies</h1>

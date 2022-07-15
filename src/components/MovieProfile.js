@@ -26,10 +26,9 @@ export default () => {
   const [image, setImage] = useState();
   const [video, setVideo] = useState();
   const [isMovieAdded, setIsMovieAdded] = useState(false);
-  const [movieInList, setMovieInList] = useState(false);
 
 
-  const moviesList = useSelector(state => state.handleList.moviesList);
+  // const moviesList = useSelector(state => state.handleList.moviesList);
   const favMovies = useSelector(state => state.handleList.favMovies);
   
   const [loading, setLoading] = useState(true);
@@ -87,6 +86,13 @@ export default () => {
     setIsMovieAdded(true);
   }
 
+  const removeFromListHandler = () => {
+    dispatch(addToListActions.removeMovie(movie.id));
+
+    Notification({message:'Successfully removed from list', classes:'notification-success'})
+    setIsMovieAdded(false);
+  }
+
   // const listedMovie = movie ? favMovies.includes(movie.id) : 'nope'
   // console.log(favMovies, movie ? movie.id : '', listedMovie)
 
@@ -139,7 +145,7 @@ export default () => {
               }}
             </Transition>
             {!isMovieAdded && <Button type="button" func={addToListHandler} label="+ Add to List" classes="addToList" />}
-            {isMovieAdded && <Button type="button" label="Remove from List" classes="removeFromList" />}
+            {isMovieAdded && <Button type="button" func={removeFromListHandler} label="Remove from List" classes="removeFromList" />}
           </div>
         </div>
       </div>

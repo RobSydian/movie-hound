@@ -16,8 +16,6 @@ const movieListHandler = createSlice({
             if (!existingMovie) {
                 state.moviesList.push(newMovie);
                 state.favMovies.push(newMovie.id)
-            } else {
-                console.log('Movie already selected');
             }
         },
         removeMovie(state, action) {
@@ -25,9 +23,8 @@ const movieListHandler = createSlice({
             const existingMovie = state.moviesList.find(movie => movie.id === id);
 
             if (existingMovie) {
-                state.moviesList = state.moviesList.filter(movie => movie.id === id)
-            } else {
-                console.log('Dunno wot hapnd')
+                state.moviesList = state.moviesList.filter(movie => movie.id !== id);
+                state.favMovies = state.favMovies.filter(movie => movie !== existingMovie)
             }
         }
     }
