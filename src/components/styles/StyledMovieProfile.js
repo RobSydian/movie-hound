@@ -4,7 +4,7 @@ const StyledMovieProfile = styled.div`
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.primary};
   min-height: 80vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(${({ url }) => url});
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
