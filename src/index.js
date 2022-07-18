@@ -8,15 +8,17 @@ import { theme } from './theme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/index';
-
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        <Router>
-          <App />
-        </Router>
+        <ParallaxProvider>
+          <Router>
+            <App />
+          </Router>
+        </ParallaxProvider>
       </Provider>
     </ThemeProvider>
   </React.StrictMode>,

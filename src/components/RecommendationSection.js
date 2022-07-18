@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Parallax } from 'react-scroll-parallax';
 import { addToListActions } from '../store/fav-movie-list-handler-slice';
 import { image_base_url } from '../URLS/baseUrls';
 import StyledRecommendationSection from './styles/StyledRecommendationSection';
@@ -46,32 +47,34 @@ export default function RecommendationSection({ recommendedMovies }) {
 
   return (
     <StyledRecommendationSection url={profileImageUrl}>
-      <section className="recommendation-section">
-        <div className="top-container">
-          <div className="titleSection">
-            <h1>Popular: {movie?.original_title}</h1>
-            <div className="body-container">
-              <p className="description">"{movie?.overview}"</p>
-              <Button type="button" label="Details" classes="watchDetails" />
-              {isMovieAdded ? (
-                <Button
-                  type="button"
-                  func={removeFromListHandler}
-                  label="Remove from List"
-                  classes="removeFromList"
-                />
-              ) : (
-                <Button
-                  type="button"
-                  func={addToListHandler}
-                  label="+ Add to List"
-                  classes="addToList"
-                />
-              )}
+      <Parallax translateY={[-20, 25]} translateX={[-20, 20]}>
+        <section className="recommendation-section">
+          <div className="top-container">
+            <div className="titleSection">
+              <h1>Popular: {movie?.original_title}</h1>
+              <div className="body-container">
+                <p className="description">"{movie?.overview}"</p>
+                <Button type="button" label="Details" classes="watchDetails" />
+                {isMovieAdded ? (
+                  <Button
+                    type="button"
+                    func={removeFromListHandler}
+                    label="Remove from List"
+                    classes="removeFromList"
+                  />
+                ) : (
+                  <Button
+                    type="button"
+                    func={addToListHandler}
+                    label="+ Add to List"
+                    classes="addToList"
+                  />
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Parallax>
     </StyledRecommendationSection>
   );
 }
