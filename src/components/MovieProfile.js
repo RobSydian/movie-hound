@@ -7,8 +7,8 @@ import Button from './UI/Button';
 import { addToListActions } from '../store/fav-movie-list-handler-slice';
 import { useDispatch } from 'react-redux';
 import Notification from './UI/Notification';
-import { useSelector } from "react-redux";
-
+import { useSelector } from 'react-redux';
+import { image_base_url, video_base_url } from '../URLS/baseUrls';
 
 import {
   discoverMoviesCached,
@@ -17,8 +17,7 @@ import {
   getVideoByMovieId,
 } from '../api';
 import StyledMovieProfile from './styles/StyledMovieProfile';
-import RiseLoader from "react-spinners/RiseLoader";
-
+import RiseLoader from 'react-spinners/RiseLoader';
 
 export default () => {
   const { id } = useParams();
@@ -27,14 +26,10 @@ export default () => {
   const [video, setVideo] = useState();
   const [isMovieAdded, setIsMovieAdded] = useState(false);
 
+  const favMovies = useSelector((state) => state.handleList.favMovies);
 
-  // const moviesList = useSelector(state => state.handleList.moviesList);
-  const favMovies = useSelector(state => state.handleList.favMovies);
-  
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const image_base_url = 'https://image.tmdb.org/t/p/original';
-  const video_base_url = 'https://www.youtube.com/embed/';
 
   useEffect(async () => {
     const response = await getMovieById(id);
@@ -44,7 +39,7 @@ export default () => {
     if (response.status === 404) {
       setError(true);
     }
-    const movieResponse = await response.json()
+    const movieResponse = await response.json();
     setMovie(movieResponse);
     setImage(await imageResponse.json());
     setVideo(await videoResponse.json());
@@ -52,16 +47,13 @@ export default () => {
     if (imageResponse.status === 404) {
       setError(true);
     }
-    
-    
+
     if (favMovies.includes(movieResponse.id)) {
-      setIsMovieAdded(true)
+      setIsMovieAdded(true);
     }
 
     setLoading(false);
   }, []);
-  
-  
 
   if (error) {
     return <h1 style={{ backgroundColor: 'red' }}>Error!</h1>;
@@ -72,8 +64,8 @@ export default () => {
     : null;
 
   const percentConverter = (value) => {
-    return (value * 10).toString()
-  }
+    return (value * 10).toString();
+  };
 
   const hasVideo = video?.results.length !== 0;
 
@@ -82,22 +74,35 @@ export default () => {
   const addToListHandler = () => {
     dispatch(addToListActions.addMovie(movie));
 
-    Notification({message:'Successfully added to list', classes:'notification-success'})
+    Notification({
+      message: 'Successfully added to list',
+      classes: 'notification-success',
+    });
     setIsMovieAdded(true);
-  }
+  };
 
   const removeFromListHandler = () => {
     dispatch(addToListActions.removeMovie(movie.id));
 
-    Notification({message:'Successfully removed from list', classes:'notification-success'})
+    Notification({
+      message: 'Successfully removed from list',
+      classes: 'notification-success',
+    });
     setIsMovieAdded(false);
-  }
-
-  // const listedMovie = movie ? favMovies.includes(movie.id) : 'nope'
-  // console.log(favMovies, movie ? movie.id : '', listedMovie)
+  };
 
   return loading ? (
-    <RiseLoader color="#522B47" cssOverride={{ margin: "40% 30%", position: "absolute", top: "-50%", left: "10%" }} loading={loading} size={50} />
+    <RiseLoader
+      color="#522B47"
+      cssOverride={{
+        margin: '40% 30%',
+        position: 'absolute',
+        top: '-50%',
+        left: '10%',
+      }}
+      loading={loading}
+      size={50}
+    />
   ) : (
     <StyledMovieProfile url={profileImageUrl}>
       <div className="full-container">
@@ -111,7 +116,11 @@ export default () => {
               })}
             </p>
             <div className={hasVideo ? 'detailBoard' : 'detailBoardNoVid'}>
-              <ProgressBar width="230" trackWidth="10" percentage={percentConverter(movie.vote_average)} />
+              <ProgressBar
+                width="230"
+                trackWidth="10"
+                percentage={percentConverter(movie.vote_average)}
+              />
               <div className="highlightedData">Duration: {movie.runtime}m</div>
               <div className="highlightedData">
                 Release date: {movie.release_date}
@@ -122,16 +131,11 @@ export default () => {
             </div>
           </div>
           <div className="video-container">
-            <Transition
-              in={hasVideo}
-              timeout={1000}
-              mountOnEnter
-            >
-              {state => {
+            <Transition in={hasVideo} timeout={1000} mountOnEnter>
+              {(state) => {
                 const frameClasses = state === 'entered' ? 'movieTrailer' : '';
                 return (
-
-                  < iframe
+                  <iframe
                     className={frameClasses}
                     src={`${video_base_url}${video.results[0].key}?wmode=opaque`}
                     frameBorder="0"
@@ -141,11 +145,25 @@ export default () => {
                     allowFullScreen
                     title="video"
                   />
-                )
+                );
               }}
             </Transition>
-            {!isMovieAdded && <Button type="button" func={addToListHandler} label="+ Add to List" classes="addToList" />}
-            {isMovieAdded && <Button type="button" func={removeFromListHandler} label="Remove from List" classes="removeFromList" />}
+            {!isMovieAdded && (
+              <Button
+                type="button"
+                func={addToListHandler}
+                label="+ Add to List"
+                classes="addToList"
+              />
+            )}
+            {isMovieAdded && (
+              <Button
+                type="button"
+                func={removeFromListHandler}
+                label="Remove from List"
+                classes="removeFromList"
+              />
+            )}
           </div>
         </div>
       </div>
