@@ -29,6 +29,12 @@ const StyledHeader = styled.div`
     color: ${({ theme }) => theme.colors.text};
     opacity: 1;
     transition: 0.3s;
+    margin-right: 1rem;
+    border-radius: 10px;
+  }
+
+  .section {
+    outline: 1px solid ${({ theme }) => theme.colors.secondary};
   }
 
   .navigation a:hover {

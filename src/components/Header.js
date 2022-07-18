@@ -14,13 +14,19 @@ export default () => (
       </div>
       <ul className="navigation">
         <li>
-          <Link to="/discover">Discover</Link>
+          <Link to="/discover" className="section">
+            Discover
+          </Link>
         </li>
         <li>
-          <Link to="/my-list">My List</Link>
+          <Link to="/my-list" className="section">
+            My List
+          </Link>
         </li>
         <li>
-          <Link to="/genres">Genres</Link>
+          <Link to="/genres" className="section">
+            Genres
+          </Link>
         </li>
         <li>
           <Link to="/search">
