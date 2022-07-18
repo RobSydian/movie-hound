@@ -16,13 +16,23 @@ const StyledButton = styled.button`
   }
 
   &.removeFromList {
-    background-color: #EE3838;
+    background-color: #ee3838;
     font-weight: bold;
     color: white;
   }
 
   &.removeFromList:hover {
-    background-color: #B41111;
+    background-color: #b41111;
+  }
+
+  &.watchDetails {
+    background-color: ${({ theme }) => theme.colors.secondary};
+    color: white;
+    font-weight: bold;
+  }
+
+  &.watchDetails:hover {
+    background-color: ${({ theme }) => theme.colors.secondaryContrast};
   }
 `;
 

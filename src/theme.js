@@ -3,7 +3,8 @@ export const theme = {
     text: '#FBF5F3',
     background: '#0F0E0E',
     primary: '#7B0828',
-    secondary: '#522B47',
+    secondary: '#9C237A',
+    secondaryContrast: '#811E65',
     contrast: '#8DAA9D',
   },
   fonts: {
@@ -13,5 +14,5 @@ export const theme = {
   body: {
     margin: '0',
     padding: '20px 0',
-  }
+  },
 };

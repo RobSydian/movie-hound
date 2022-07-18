@@ -10,6 +10,7 @@ const StyledRecommendationSection = styled.div`
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
   background-attachment: fixed;
+  padding: 0 2rem;
 
   .full-container {
     width: auto;
@@ -18,30 +19,38 @@ const StyledRecommendationSection = styled.div`
   }
 
   .top-container {
-    padding: 0 15% 0 0;
+    width: 50%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
-
-
-  h1 {
-    font-size: 50px;
+  .titleSection {
+    margin: auto;
+    padding: 2rem;
   }
 
-  h3 {
+  .titleSection h1 {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .titleSection h3 {
     font-size: 25px;
   }
 
   .body-container {
     padding: 2em 1em 0 0;
     font-weight: bold;
-    width: 500px;
-    margin: auto;
   }
   .body-container,
   .titleSection p {
     font-size: ${({ theme }) => theme.fonts.textSize};
+  }
+
+  .titleSection {
+    width: 100%;
+    /* margin: auto; */
   }
 
   .genres {
@@ -52,9 +61,6 @@ const StyledRecommendationSection = styled.div`
     font-weight: bold;
     font-size: 1.5em;
   }
-
-
-
 `;
 
 export default StyledRecommendationSection;

@@ -52,7 +52,7 @@ export default function RecommendationSection({ recommendedMovies }) {
             <h1>Popular: {movie?.original_title}</h1>
             <div className="body-container">
               <p className="description">"{movie?.overview}"</p>
-              <Button type="button" label="Details" />
+              <Button type="button" label="Details" classes="watchDetails" />
               {isMovieAdded ? (
                 <Button
                   type="button"
