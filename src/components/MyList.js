@@ -17,7 +17,11 @@ export default function MyList() {
   return (
     <StyledMyList>
       <h1>My List</h1>
-      <Carousel items={moviesList} isListView={true} />
+      {moviesList.length > 0 ? (
+        <Carousel items={moviesList} isListView={true} />
+      ) : (
+        <h2>The Hound could not sniff any movies on your list.</h2>
+      )}
     </StyledMyList>
   );
 }
