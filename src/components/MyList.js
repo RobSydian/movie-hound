@@ -17,7 +17,7 @@ export default function MyList() {
   return (
     <StyledMyList>
       <h1>My List</h1>
-      <Carousel items={moviesList} />
+      <Carousel items={moviesList} isListView={true} />
     </StyledMyList>
   );
 }
