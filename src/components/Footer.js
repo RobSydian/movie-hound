@@ -3,6 +3,7 @@ import React from 'react';
 import Logo from '../images/moviehoundlogo.png';
 import LogoLG from '../images/moviehoundlogo-large.png';
 import StyledFooter from './styles/StyledFooter';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -16,21 +17,36 @@ const Footer = () => {
         <div className="sitemap-footer footer-element">
           {/* <h3>Sitemap</h3> */}
           <ul>
-            <li>Discover</li>
-            <li>My List</li>
-            <li>Search</li>
-            <li>Profile</li>
+            <li>
+              <Link to="/discover/">Discover</Link>
+            </li>
+            <li>
+              <Link to="/my-list/">My List</Link>
+            </li>
+            <li>
+              <Link to="/genres/">Genres</Link>
+            </li>
+            <li>
+              <Link to="/profile/">Profile</Link>
+            </li>
           </ul>
         </div>
         <div className="contact-details-footer footer-element">
           <h3>Contact</h3>
-          <ul>
-            <li>movieshound@houndmovie.com</li>
-            <li>Barcelona st, Barcelona 08029</li>
-            <li>This is a map</li>
-          </ul>
+          <address>
+            <ul>
+              <li>
+                <a href="mailto:movieshound@houndmovie.com">
+                  movieshound@houndmovie.com
+                </a>
+              </li>
+              <li>Barcelona st, Barcelona 08029</li>
+            </ul>
+          </address>
         </div>
-        <div className="privacy footer-element">Privacy</div>
+        <div className="privacy footer-element">
+          <a href="https://www.react-project.net/privacy-policy/">Privacy</a>
+        </div>
       </div>
     </StyledFooter>
   );

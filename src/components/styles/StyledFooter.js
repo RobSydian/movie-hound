@@ -4,6 +4,7 @@ const StyledFooter = styled.div`
   .contact-details-footer h3,
   .sitemap-footer h3 {
     /* text-align: center; */
+    color: white;
   }
 
   .footer-container {
@@ -19,9 +20,20 @@ const StyledFooter = styled.div`
     list-style-type: none;
     padding: 0;
   }
-
   .footer-container li {
-    padding: 5px 0;
+    padding: 0.5rem;
+  }
+  .footer-container li a,
+  a:visited,
+  .privacy a {
+    color: white;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  .footer-container li a:hover,
+  .privacy a:hover {
+    color: ${({ theme }) => theme.colors.contrast};
   }
 
   .footer-element {
@@ -79,6 +91,10 @@ const StyledFooter = styled.div`
     justify-content: center;
     text-align: center;
     padding: 20px 0;
+  }
+
+  address a {
+    font-style: normal;
   }
 `;
 
