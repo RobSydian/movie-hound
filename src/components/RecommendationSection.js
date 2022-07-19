@@ -54,7 +54,12 @@ export default function RecommendationSection({ recommendedMovies }) {
             <div className="titleSection">
               <h1>Popular: {movie?.original_title}</h1>
               <div className="body-container">
-                <p className="description">"{movie?.overview}"</p>
+                {/* <p className="description">"{movie?.overview}"</p> */}
+                <p className="description">
+                  {movie?.overview.length > 300
+                    ? `${movie?.overview.substring(0, 300)}...`
+                    : movie?.overview}
+                </p>
                 <Link to={'/details/' + movie?.id}>
                   <Button
                     type="button"
