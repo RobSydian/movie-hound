@@ -101,7 +101,7 @@ export default () => {
       // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
       strokeLinecap: 'round',
       // Customize transition animation
-      transition: 'stroke-dashoffset 0.5s ease 0s',
+      transition: 'stroke-dashoffset .5s ease 1s',
       // Rotate the path
       transform: 'rotate(0)',
       transformOrigin: 'center center',
