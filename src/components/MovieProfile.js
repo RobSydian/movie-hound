@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Transition from 'react-transition-group/Transition';
 import { useParams } from 'react-router-dom';
-import ProgressBar from 'react-animated-progress-bar';
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import ProductionCompaniesPanel from './ProductionCompaniesPanel';
 import Button from './UI/Button';
 import { addToListActions } from '../store/fav-movie-list-handler-slice';
@@ -9,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import Notification from './UI/Notification';
 import { useSelector } from 'react-redux';
 import { image_base_url, video_base_url } from '../URLS/baseUrls';
+import ProgressProvider from './UI/ProgressProvider';
 
 import {
   discoverMoviesCached,
@@ -51,7 +53,6 @@ export default () => {
     if (favMovies.includes(movieResponse.id)) {
       setIsMovieAdded(true);
     }
-
     setLoading(false);
   }, []);
 
@@ -91,6 +92,43 @@ export default () => {
     setIsMovieAdded(false);
   };
 
+  const progressStyles = {
+    root: {},
+    // Customize the path, i.e. the "completed progress"
+    path: {
+      // Path color
+      stroke: `rgba(90, 220, 49, 1)`,
+      // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+      strokeLinecap: 'round',
+      // Customize transition animation
+      transition: 'stroke-dashoffset 0.5s ease 0s',
+      // Rotate the path
+      transform: 'rotate(0)',
+      transformOrigin: 'center center',
+    },
+    // Customize the circle behind the path, i.e. the "total progress"
+    trail: {
+      // Trail color
+      stroke: 'rgba(176, 182, 174, 0.5)',
+      // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+      strokeLinecap: 'round',
+      // Rotate the trail
+      transform: 'rotate(0.25turn)',
+      transformOrigin: 'center center',
+    },
+    // Customize the text
+    text: {
+      // Text color
+      fill: 'white',
+      // Text size
+      fontSize: '20px',
+    },
+    // Customize background - only used when the `background` prop is true
+    background: {
+      fill: 'purple',
+    },
+  };
+
   return loading ? (
     <RiseLoader
       color="#522B47"
@@ -116,11 +154,23 @@ export default () => {
               })}
             </p>
             <div className={hasVideo ? 'detailBoard' : 'detailBoardNoVid'}>
-              <ProgressBar
-                width="230"
-                trackWidth="10"
-                percentage={percentConverter(movie.vote_average)}
-              />
+              {hasVideo && (
+                <div className="progressBarContainer">
+                  <ProgressProvider
+                    valueStart={0}
+                    valueEnd={percentConverter(movie.vote_average)}
+                  >
+                    {(value) => (
+                      <CircularProgressbar
+                        value={value}
+                        text={value}
+                        className="CircularProgressbar"
+                        styles={progressStyles}
+                      />
+                    )}
+                  </ProgressProvider>
+                </div>
+              )}
               <div className="highlightedData">Duration: {movie.runtime}m</div>
               <div className="highlightedData">
                 Release date: {movie.release_date}

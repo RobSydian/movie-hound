@@ -25,7 +25,6 @@ const StyledMovieProfile = styled.div`
   }
   .video-container {
     min-height: 50%;
-
   }
   .video-container p {
     font-size: 20px;
@@ -76,23 +75,26 @@ const StyledMovieProfile = styled.div`
     animation: showTrailer 1s ease-out forwards;
   }
 
+  .progressBarContainer {
+    width: 120px;
+  }
+
   //Animations
-  
+
   @keyframes showTrailer {
     0% {
       opacity: 0;
-      transform: translateX(100%)
+      transform: translateX(100%);
     }
     50% {
       opacity: 1;
-      transform: translateX(50%)
+      transform: translateX(50%);
     }
     100% {
       opacity: 1;
-      transform: translateX(0)
+      transform: translateX(0);
     }
   }
-
 `;
 
 export default StyledMovieProfile;

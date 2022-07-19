@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Parallax } from 'react-scroll-parallax';
 import { addToListActions } from '../store/fav-movie-list-handler-slice';
 import { image_base_url } from '../URLS/baseUrls';
@@ -47,14 +48,20 @@ export default function RecommendationSection({ recommendedMovies }) {
 
   return (
     <StyledRecommendationSection url={profileImageUrl}>
-      <Parallax translateY={[-20, 25]} translateX={[-20, 20]}>
+      <Parallax translateY={[-20, 20]} translateX={[-20, 20]}>
         <section className="recommendation-section">
           <div className="top-container">
             <div className="titleSection">
               <h1>Popular: {movie?.original_title}</h1>
               <div className="body-container">
                 <p className="description">"{movie?.overview}"</p>
-                <Button type="button" label="Details" classes="watchDetails" />
+                <Link to={'/details/' + movie?.id}>
+                  <Button
+                    type="button"
+                    label="Details"
+                    classes="watchDetails"
+                  />
+                </Link>
                 {isMovieAdded ? (
                   <Button
                     type="button"
