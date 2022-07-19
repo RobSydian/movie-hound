@@ -10,7 +10,7 @@ const Footer = () => {
     <StyledFooter>
       <div className="footer-container">
         <div className="logo-footer footer-element">
-          <a href="www.google.com">
+          <a href="/">
             <img src={LogoLG} alt="movies hound logo" width="150px" />
           </a>
         </div>
