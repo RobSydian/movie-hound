@@ -3,22 +3,22 @@ import Transition from 'react-transition-group/Transition';
 import { useParams } from 'react-router-dom';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import ProductionCompaniesPanel from './ProductionCompaniesPanel';
-import Button from './UI/Button';
-import { addToListActions } from '../store/fav-movie-list-handler-slice';
+import ProductionCompaniesPanel from '../ProductionCompaniesPanel';
+import Button from '../UI/Button';
+import { addToListActions } from '../../store/fav-movie-list-handler-slice';
 import { useDispatch } from 'react-redux';
-import Notification from './UI/Notification';
+import Notification from '../UI/Notification';
 import { useSelector } from 'react-redux';
-import { image_base_url, video_base_url } from '../URLS/baseUrls';
-import ProgressProvider from './UI/ProgressProvider';
+import { image_base_url, video_base_url } from '../../URLS/baseUrls';
+import ProgressProvider from '../UI/ProgressProvider';
 
 import {
   discoverMoviesCached,
   getMovieById,
   getMovieImageById,
   getVideoByMovieId,
-} from '../api';
-import StyledMovieProfile from './styles/StyledMovieProfile';
+} from '../../api';
+import StyledMovieProfile from '../styles/StyledMovieProfile';
 import RiseLoader from 'react-spinners/RiseLoader';
 
 export default () => {

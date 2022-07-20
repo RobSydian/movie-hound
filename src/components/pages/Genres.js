@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import { getGenres, discoverMovies, discoverMoviesByGenre } from '../api';
-import Carousel from './UI/Carousel';
-import StyledGenres from './styles/StyledGenres';
+import { getGenres, discoverMovies, discoverMoviesByGenre } from '../../api';
+import Carousel from '../UI/Carousel';
+import StyledGenres from '../styles/StyledGenres';
 
 export default () => {
   const [genres, setGenres] = useState([]);

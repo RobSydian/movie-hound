@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { discoverMovies, discoverMoviesCached } from '../api';
-import StyledDiscover from './styles/StyledDiscover';
+import { discoverMovies, discoverMoviesCached } from '../../api';
+import StyledDiscover from '../styles/StyledDiscover';
 
 const Discover = () => {
   const [movies, setMovies] = useState([]);

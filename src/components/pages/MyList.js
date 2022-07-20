@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import StyledMyList from './styles/StyledMyList';
-import Carousel from './UI/Carousel';
+import StyledMyList from '../styles/StyledMyList';
+import Carousel from '../UI/Carousel';
 
 export default function MyList() {
   const moviesList = useSelector((state) => state.handleList.moviesList);

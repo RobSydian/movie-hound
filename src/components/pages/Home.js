@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-import Carousel from './UI/Carousel';
+import Carousel from '../UI/Carousel';
 import RiseLoader from 'react-spinners/RiseLoader';
-import { discoverMoviesCached, discoverMovies, getGenres } from '../api';
-import StyledHome from './styles/StyledHome';
-import RecommendationSection from './RecommendationSection';
+import { discoverMoviesCached, discoverMovies, getGenres } from '../../api';
+import StyledHome from '../styles/StyledHome';
+import RecommendationSection from '../RecommendationSection';
 
 export default () => {
   const [discoverAllMovies, setDiscoverAllMovies] = useState([]);

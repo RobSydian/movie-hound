@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Discover from './Discover';
-import Genres from './Genres';
-import Home from './Home';
-import MovieProfile from './MovieProfile';
+import Discover from './pages/Discover';
+import Genres from './pages/Genres';
+import Home from './pages/Home';
+import MovieProfile from './pages/MovieProfile';
 import SearchPage from './SearchPage';
+import MyList from './pages/MyList';
 import UserRegistrationForm from './UserRegistrationForm';
 import StyledBody from './styles/StyledBody';
-import MyList from './MyList';
 
 const UnderConstruction = () => (
   <div>
