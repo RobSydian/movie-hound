@@ -21,14 +21,22 @@ export default () => {
   return (
     <StyledGenres>
       <h1>Genres</h1>
-      {genres.map((genre) => (
-        <div key={genre.id}>
-          <h2>{genre.name}</h2>
-          <Carousel
-            items={movies.filter((movie) => movie.genre_ids.includes(genre.id))}
-          />
-        </div>
-      ))}
+      {!loading &&
+        genres.map((genre) => {
+          const movieItems = movies.filter((movie) =>
+            movie.genre_ids.includes(genre.id)
+          );
+          return (
+            <>
+              {movieItems.length > 0 && (
+                <div key={genre.id}>
+                  <h2>{genre.name}</h2>
+                  <Carousel items={movieItems} />
+                </div>
+              )}
+            </>
+          );
+        })}
     </StyledGenres>
   );
 };
