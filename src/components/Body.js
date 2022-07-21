@@ -9,6 +9,11 @@ import SearchPage from './SearchPage';
 import MyList from './pages/MyList';
 import UserRegistrationForm from './UserRegistrationForm';
 import StyledBody from './styles/StyledBody';
+import Login from './Login';
+import UpdateProfile from './UpdateProfile';
+import PrivateRoute from './PrivateRoute';
+import ForgotPassword from './ForgotPassword';
+import Logout from './Logout';
 
 const UnderConstruction = () => (
   <div>
@@ -21,30 +26,18 @@ const UnderConstruction = () => (
 export default () => (
   <StyledBody>
     <Switch>
-      <Route path="/" exact>
-        <Home />
-      </Route>
-      <Route path="/discover">
-        <Discover />
-      </Route>
-      <Route path="/my-list">
-        <MyList />
-      </Route>
-      <Route path="/search">
-        <SearchPage />
-      </Route>
-      <Route path="/profile">
-        <SearchPage />
-      </Route>
-      <Route path={'/details/:id'}>
-        <MovieProfile />
-      </Route>
-      <Route path={'/genres'}>
-        <Genres />
-      </Route>
-      <Route path={'/userRegistrationForm'}>
-        <UserRegistrationForm />
-      </Route>
+      <Route path="/" exact component={Home} />
+      <PrivateRoute path="/discover" component={Discover} />
+      <PrivateRoute path="/my-list" component={MyList} />
+      <Route path="/search" component={SearchPage} />
+      <Route path="/profile" component={SearchPage} />
+      <Route path={'/details/:id'} component={MovieProfile} />
+      <Route path={'/genres'} component={Genres} />
+      <Route path={'/signup'} component={UserRegistrationForm} />
+      <Route path={'/login'} component={Login} />
+      <Route path={'/logout'} component={Logout} />
+      <Route path={'/forgot-password'} component={ForgotPassword} />
+      <Route path={'/update-profile'} component={UpdateProfile} />
     </Switch>
   </StyledBody>
 );

@@ -8,11 +8,12 @@ const StyledUserRegistrationForm = styled.div`
   color: ${({ theme }) => theme.colors.text};
 
   .formContainer {
-    border: 1px solid yellow;
+    border: 1px solid gold;
     padding: 1.5rem 3rem;
-    min-height: 50vh;
+    min-height: 40vh;
     text-align: center;
-    margin: 0 10%;
+    margin: 10%;
+    border-radius: 5%;
   }
 
   .formInput {
@@ -41,13 +42,18 @@ const StyledUserRegistrationForm = styled.div`
     outline-color: ${({ theme }) => theme.colors.secondary};
   }
 
-  .primaryButton {
-    background-color: green;
-    color: ${({ theme }) => theme.colors.text};
+  .btn-panel {
+    display: flex;
+    justify-content: center;
   }
 
-  .primaryButton:hover {
-    background-color: darkgreen;
+  a {
+    color: gold;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: goldenrod;
   }
 `;
 

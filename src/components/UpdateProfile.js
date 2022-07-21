@@ -5,10 +5,12 @@ import Button from './UI/Button';
 import { useAuth } from '../contexts/AuthContext';
 import Notification from './UI/Notification';
 import { Link, useHistory } from 'react-router-dom';
+import Logout from './Logout';
 
 export default () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showButton, setShowButton] = useState(false);
 
   //Refs
   // const nameRef = useRef();
@@ -17,25 +19,41 @@ export default () => {
   const passwordConfirmRef = useRef();
   const history = useHistory();
 
-  const { signup } = useAuth();
+  const { currentUser, updatePassword, updateEmail } = useAuth();
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
+    setError('');
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       setError('Passwords do not match');
     }
 
-    try {
-      setError('');
-      setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
-      history.push('/');
-    } catch (error) {
-      setError('Failed to create an account');
+    const promises = [];
+
+    if (emailRef.current.value !== currentUser.email) {
+      promises.push(updateEmail(emailRef.current.value));
     }
 
-    setLoading(false);
+    if (passwordRef.current.value) {
+      promises.push(updatePassword(passwordRef.current.value));
+    }
+
+    Promise.all(promises)
+      .then(() => {
+        history.push('/');
+      })
+      .catch(() => {
+        setError('Failed to update account');
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }
+
+  function showButtonHandler() {
+    setShowButton(true);
   }
 
   useEffect(() => {
@@ -51,19 +69,26 @@ export default () => {
   return (
     <StyledUserRegistrationForm>
       <div className="formContainer">
-        <h1>Registration Form</h1>
+        <h1>Update Profile</h1>
         <form onSubmit={handleSubmit}>
-          {/* <div className="formInput">
-            <label htmlFor="name">Name</label>
-            <input ref={nameRef} type="text" id="name" />
-          </div> */}
           <div className="formInput">
             <label htmlFor="email">Email</label>
-            <input ref={emailRef} type="email" id="email" />
+            <input
+              ref={emailRef}
+              type="email"
+              id="email"
+              defaultValue={currentUser.email}
+              onChange={showButtonHandler}
+            />
           </div>
           <div className="formInput">
             <label htmlFor="password">Password</label>
-            <input ref={passwordRef} type="password" id="password" required />
+            <input
+              ref={passwordRef}
+              type="password"
+              id="password"
+              placeholder="Leave blank to keep the same"
+            />
           </div>
           <div className="formInput">
             <label htmlFor="confirmPassword">Confirm Password</label>
@@ -71,16 +96,20 @@ export default () => {
               ref={passwordConfirmRef}
               type="password"
               id="confirmPassword"
-              required
+              placeholder="Leave blank to keep the same"
             />
           </div>
-
-          <Button type="submit" label="Register" classes="primaryButton" />
+          <div className="btn-panel">
+            <Link to="/">
+              <Button label="Cancel" classes="secondaryButton" />
+            </Link>
+            {showButton && (
+              <Button type="submit" label="Update" classes="primaryButton" />
+            )}
+          </div>
         </form>
-        <p>
-          If you already have an account <Link to="/login">Log In</Link>
-        </p>
       </div>
+      <Logout />
     </StyledUserRegistrationForm>
   );
 };

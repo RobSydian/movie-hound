@@ -34,6 +34,24 @@ const StyledButton = styled.button`
   &.watchDetails:hover {
     background-color: ${({ theme }) => theme.colors.secondaryContrast};
   }
+
+  &.primaryButton {
+    background-color: green;
+    color: ${({ theme }) => theme.colors.text};
+  }
+
+  &.primaryButton:hover {
+    background-color: darkgreen;
+  }
+
+  &.secondaryButton {
+    background-color: grey;
+    color: ${({ theme }) => theme.colors.text};
+  }
+
+  &.secondaryButton:hover {
+    background-color: darkgrey;
+  }
 `;
 
 export default StyledButton;

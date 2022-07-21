@@ -9,37 +9,31 @@ import { Link, useHistory } from 'react-router-dom';
 export default () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
-  //Refs
-  // const nameRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
   const history = useHistory();
 
-  const { signup } = useAuth();
+  //Refs
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  const { login } = useAuth();
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      setError('Passwords do not match');
-    }
-
     try {
       setError('');
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      await login(emailRef.current.value, passwordRef.current.value);
       history.push('/');
     } catch (error) {
-      setError('Failed to create an account');
+      setError('Failed to log in');
     }
 
     setLoading(false);
   }
 
   useEffect(() => {
-    if (error.length > 0) {
+    if (error) {
       Notification({
         message: error,
         classes: 'notification-danger',
@@ -51,12 +45,8 @@ export default () => {
   return (
     <StyledUserRegistrationForm>
       <div className="formContainer">
-        <h1>Registration Form</h1>
+        <h1>Log In</h1>
         <form onSubmit={handleSubmit}>
-          {/* <div className="formInput">
-            <label htmlFor="name">Name</label>
-            <input ref={nameRef} type="text" id="name" />
-          </div> */}
           <div className="formInput">
             <label htmlFor="email">Email</label>
             <input ref={emailRef} type="email" id="email" />
@@ -65,21 +55,14 @@ export default () => {
             <label htmlFor="password">Password</label>
             <input ref={passwordRef} type="password" id="password" required />
           </div>
-          <div className="formInput">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              ref={passwordConfirmRef}
-              type="password"
-              id="confirmPassword"
-              required
-            />
-          </div>
-
-          <Button type="submit" label="Register" classes="primaryButton" />
+          <Button type="submit" label="Login" classes="primaryButton" />
         </form>
         <p>
-          If you already have an account <Link to="/login">Log In</Link>
+          If you don't have an account <Link to="/signup">Sign Up</Link>
         </p>
+        <h3>
+          <Link to="/forgot-password">Forgot Password?</Link>
+        </h3>
       </div>
     </StyledUserRegistrationForm>
   );
