@@ -8,7 +8,7 @@ export const theme = {
     contrast: '#8DAA9D',
   },
   fonts: {
-    primary: 'Bebas Neue',
+    primary: 'Montserrat',
     textSize: '20px',
   },
   body: {

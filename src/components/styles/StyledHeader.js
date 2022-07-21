@@ -22,7 +22,8 @@ const StyledHeader = styled.div`
     list-style: none;
   }
 
-  .navigation a {
+  .navigation a,
+  .dropdown-icon {
     text-decoration: none;
     display: block;
     padding: 1em;
@@ -37,7 +38,8 @@ const StyledHeader = styled.div`
     outline: 1px solid ${({ theme }) => theme.colors.secondary};
   }
 
-  .navigation a:hover {
+  .navigation a:hover,
+  .dropdown-icon:hover {
     background: ${({ theme }) => theme.colors.secondary};
     opacity: 1;
   }

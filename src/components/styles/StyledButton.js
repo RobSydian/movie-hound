@@ -5,6 +5,8 @@ const StyledButton = styled.button`
   padding: 1rem;
   border: none;
   border-radius: 1rem;
+  font-family: ${({ theme }) => theme.fonts.primary};
+  size: ${({ theme }) => theme.fonts.textSize};
 
   &.addToList {
     background-color: gold;

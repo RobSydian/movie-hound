@@ -1,15 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserSecret, FaSistrix } from 'react-icons/fa';
 import Logo from '../images/moviehoundlogo.png';
 import StyledHeader from './styles/StyledHeader';
 import { useAuth } from '../contexts/AuthContext';
+import DropdownMenu from './UI/DropdownMenu';
 
 export default () => {
   const { currentUser } = useAuth();
+  const [showDropdown, setShowDropdown] = useState(false);
   // useEffect(() => {
 
   // }, [currentUser]);
+
+  const userDropdownItems = [
+    { id: 'i0', name: 'My profile', ref: '/user-profile' },
+    { id: 'i2', name: 'Logout', ref: '' },
+  ];
+
+  const showDropdownHandler = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   return (
     <StyledHeader>
       <nav>
@@ -55,9 +67,12 @@ export default () => {
               </li>
             </>
           ) : (
-            <Link to="/update-profile">
-              <FaUserSecret />
-            </Link>
+            <>
+              <div className="dropdown-icon" onClick={showDropdownHandler}>
+                <FaUserSecret />
+              </div>
+              {showDropdown && <DropdownMenu items={userDropdownItems} />}
+            </>
           )}
         </ul>
       </nav>
