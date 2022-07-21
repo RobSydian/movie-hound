@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Parallax } from 'react-scroll-parallax';
+import { useAuth } from '../contexts/AuthContext';
 import { addToListActions } from '../store/fav-movie-list-handler-slice';
 import { image_base_url } from '../URLS/baseUrls';
 import StyledRecommendationSection from './styles/StyledRecommendationSection';
@@ -13,6 +14,8 @@ export default function RecommendationSection({ recommendedMovies }) {
 
   const [movie, setMovie] = useState();
   const isMovieAdded = favMovies.includes(movie?.id);
+  const { currentUser } = useAuth();
+  const history = useHistory();
 
   const dispatch = useDispatch();
 
@@ -25,12 +28,16 @@ export default function RecommendationSection({ recommendedMovies }) {
   }, []);
 
   const addToListHandler = () => {
-    dispatch(addToListActions.addMovie(movie));
+    if (currentUser) {
+      dispatch(addToListActions.addMovie(movie));
 
-    Notification({
-      message: 'Successfully added to list',
-      classes: 'notification-success',
-    });
+      Notification({
+        message: 'Successfully added to list',
+        classes: 'notification-success',
+      });
+    } else {
+      history.push('/login');
+    }
   };
 
   const removeFromListHandler = () => {

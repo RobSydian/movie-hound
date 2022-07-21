@@ -9,6 +9,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/index';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import ScrollToTop from 'react-router-scroll-top';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,7 +17,9 @@ ReactDOM.render(
       <Provider store={store}>
         <ParallaxProvider>
           <Router>
-            <App />
+            <ScrollToTop>
+              <App />
+            </ScrollToTop>
           </Router>
         </ParallaxProvider>
       </Provider>
