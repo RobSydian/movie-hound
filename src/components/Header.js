@@ -25,9 +25,11 @@ export default () => {
             </Link>
           </li>
           <li>
-            <Link to="/my-list" className="section">
-              My List
-            </Link>
+            {currentUser && (
+              <Link to="/my-list" className="section">
+                My List
+              </Link>
+            )}
           </li>
           <li>
             <Link to="/genres" className="section">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Transition from 'react-transition-group/Transition';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import ProductionCompaniesPanel from '../ProductionCompaniesPanel';
@@ -20,6 +20,7 @@ import {
 } from '../../api';
 import StyledMovieProfile from '../styles/StyledMovieProfile';
 import RiseLoader from 'react-spinners/RiseLoader';
+import { useAuth } from '../../contexts/AuthContext';
 
 export default () => {
   const { id } = useParams();
@@ -27,6 +28,8 @@ export default () => {
   const [image, setImage] = useState();
   const [video, setVideo] = useState();
   const [isMovieAdded, setIsMovieAdded] = useState(false);
+  const { currentUser } = useAuth();
+  const history = useHistory();
 
   const favMovies = useSelector((state) => state.handleList.favMovies);
 
@@ -73,13 +76,17 @@ export default () => {
   const dispatch = useDispatch();
 
   const addToListHandler = () => {
-    dispatch(addToListActions.addMovie(movie));
+    if (currentUser) {
+      dispatch(addToListActions.addMovie(movie));
 
-    Notification({
-      message: 'Successfully added to list',
-      classes: 'notification-success',
-    });
-    setIsMovieAdded(true);
+      Notification({
+        message: 'Successfully added to list',
+        classes: 'notification-success',
+      });
+      setIsMovieAdded(true);
+    } else {
+      history.push('/login');
+    }
   };
 
   const removeFromListHandler = () => {

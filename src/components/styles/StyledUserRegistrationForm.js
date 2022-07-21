@@ -12,7 +12,7 @@ const StyledUserRegistrationForm = styled.div`
     padding: 1.5rem 3rem;
     min-height: 40vh;
     text-align: center;
-    margin: 10%;
+    margin: 5% 10%;
     border-radius: 5%;
   }
 
@@ -35,7 +35,7 @@ const StyledUserRegistrationForm = styled.div`
   }
 
   .formInput input:focus {
-    background-color: ${({ theme }) => theme.colors.contrast};
+    background-color: lightgrey;
     border: none;
     box-shadow: 0;
     outline: 1px solid;

@@ -27,7 +27,7 @@ export default () => (
   <StyledBody>
     <Switch>
       <Route path="/" exact component={Home} />
-      <PrivateRoute path="/discover" component={Discover} />
+      <Route path="/discover" component={Discover} />
       <PrivateRoute path="/my-list" component={MyList} />
       <Route path="/search" component={SearchPage} />
       <Route path="/profile" component={SearchPage} />
@@ -37,7 +37,7 @@ export default () => (
       <Route path={'/login'} component={Login} />
       <Route path={'/logout'} component={Logout} />
       <Route path={'/forgot-password'} component={ForgotPassword} />
-      <Route path={'/update-profile'} component={UpdateProfile} />
+      <PrivateRoute path={'/update-profile'} component={UpdateProfile} />
     </Switch>
   </StyledBody>
 );
