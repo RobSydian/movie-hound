@@ -68,7 +68,7 @@ export default () => {
     : null;
 
   const percentConverter = (value) => {
-    return (value * 10).toString();
+    return Math.trunc((value * 10).toString());
   };
 
   const hasVideo = video?.results.length !== 0;
