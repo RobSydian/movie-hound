@@ -14,7 +14,7 @@ export default () => {
   // }, [currentUser]);
 
   const userDropdownItems = [
-    { id: 'i0', name: 'My profile', ref: '/user-profile' },
+    { id: 'i0', name: 'My profile', ref: '/update-profile' },
     { id: 'i2', name: 'Logout', ref: '' },
   ];
 
