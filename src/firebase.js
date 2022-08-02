@@ -1,6 +1,12 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+} from 'firebase/firestore';
 
 const app = firebase.initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -23,6 +29,15 @@ export const db = getFirestore(app);
 //collection ref
 export const usersColRef = collection(db, 'users');
 
+export const getUsersFavList = async () => {
+  const myListCol = doc(db, 'users', `${auth.currentUser.uid}`);
+  const listSnapshot = await getDoc(myListCol);
+
+  if (listSnapshot.data()) {
+    const resultList = await listSnapshot.data()['userList'];
+    return resultList;
+  }
+};
 //get collection data
 // getDocs(usersColRef)
 //   .then((snapshot) => {

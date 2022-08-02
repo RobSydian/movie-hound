@@ -5,32 +5,34 @@ import Body from './components/Body';
 import Footer from './components/Footer';
 import StyledApp from './StyledApp';
 import { Toaster } from 'react-hot-toast';
-import { AuthProvider } from './contexts/AuthContext';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { doc, setDoc } from 'firebase/firestore';
-import { auth, db } from './firebase';
+import { auth, db, getUsersFavList } from './firebase';
+import { addToListActions } from './store/fav-movie-list-handler-slice';
 
 export default () => {
   const userList = useSelector((state) => state.handleList.moviesList);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // console.log(userList);
+    getUsersFavList().then((res) => {
+      res.map((mov) => dispatch(addToListActions.addMovie(mov)));
+    });
 
     if (userList.length !== 0) {
       setDoc(doc(db, `users`, `${auth.currentUser.uid}`), {
         userList,
       });
     }
+    console.log(userList);
   }, [userList]);
 
   return (
     <StyledApp>
-      <AuthProvider>
-        <Toaster />
-        <Header />
-        <Body />
-        <Footer />
-      </AuthProvider>
+      <Toaster />
+      <Header />
+      <Body />
+      <Footer />
     </StyledApp>
   );
 };
