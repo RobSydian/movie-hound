@@ -55,7 +55,7 @@ export default function RecommendationSection({ recommendedMovies }) {
 
   return (
     <StyledRecommendationSection url={profileImageUrl}>
-      <Parallax translateY={[-20, 20]} translateX={[-20, 20]}>
+      <Parallax translateY={[-20, 10]} translateX={[-20, 20]}>
         <section className="recommendation-section">
           <div className="top-container">
             <div className="titleSection">
