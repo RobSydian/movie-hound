@@ -25,9 +25,10 @@ export default function MyList() {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     const userData = getData();
     setIsLoading(false);
-  }, []);
+  }, [favMovies]);
 
   return (
     <StyledMyList>
