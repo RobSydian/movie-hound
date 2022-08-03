@@ -24,7 +24,6 @@ export default () => {
         userList,
       });
     }
-    console.log(userList);
   }, [userList]);
 
   return (
