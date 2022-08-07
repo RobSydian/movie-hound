@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 const StyledCarouselItem = styled.div`
-  width: ${({ width }) => width};
+  width: 200;
   box-sizing: border-box;
   align-items: flex-end;
   position: relative;
-  margin: 0 10px;
+  margin: 0.5rem;
 
   .image-no-overlay {
-    max-width: 266px;
+    max-width: 200px;
     max-height: 400px;
     transition: all 0.2s ease-in-out;
   }
@@ -64,6 +64,17 @@ const StyledCarouselItem = styled.div`
 
   .icon:hover {
     color: red;
+  }
+
+  @media screen and (min-width: 992px) {
+    width: ${({ width }) => width};
+    margin: 0 10px;
+
+    .image-no-overlay {
+      max-width: 266px;
+      max-height: 400px;
+      transition: all 0.2s ease-in-out;
+    }
   }
 `;
 

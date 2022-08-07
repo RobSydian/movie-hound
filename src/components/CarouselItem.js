@@ -38,9 +38,7 @@ export default ({ id, title, width, image, isListView }) => {
             <div
               className="overlay"
               onMouseOver={showIcon}
-              // onMouseEnter={showIcon}
               onMouseOut={hideIcon}
-              // onMouseLeave={hideIcon}
             ></div>
             <FaMinusCircle
               onMouseOver={showIcon}

@@ -17,13 +17,25 @@ const StyledCarousel = styled.div`
     flex-wrap: nowrap;
     justify-content: center;
     /* margin: 0 1rem; */
-    width: 300px;
+    width: 200px;
     /* height: 450px; */
     color: ${({ theme }) => theme.colors.text};
   }
   a {
     color: ${({ theme }) => theme.colors.text};
     text-decoration: none;
+  }
+
+  @media screen and (min-width: 992px) {
+    ${StyledCarouselItem} {
+      display: inline-flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      /* margin: 0 1rem; */
+      width: 300px;
+      /* height: 450px; */
+      color: ${({ theme }) => theme.colors.text};
+    }
   }
 `;
 
