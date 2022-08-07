@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Header from './components/Header';
 import Body from './components/Body';
@@ -13,10 +13,26 @@ import { useAuth } from './contexts/AuthContext';
 
 export default () => {
   const userList = useSelector((state) => state.handleList.moviesList);
+  const [isMobile, setIsMobile] = useState(false);
+
   const dispatch = useDispatch();
   const { currentUser } = useAuth();
 
+  const handleResize = () => {
+    if (window.innerWidth < 720) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+    console.log(isMobile);
+  };
+
   useEffect(() => {
+    window.addEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    // window.addEventListener('resize', handleResize);
     if (currentUser) {
       getUsersFavList().then((res) => {
         res.map((mov) => dispatch(addToListActions.addMovie(mov)));

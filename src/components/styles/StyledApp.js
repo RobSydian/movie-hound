@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  /* 576px for portrait phones
-768px for tablets
-992px for laptops
-1200px for large devices */
+  html {
+    overflow-x: hidden;
+    width: 100vw;
+  }
+
   header h1 {
     text-align: center;
     color: ${({ theme }) => theme.colors.text};
@@ -15,11 +16,6 @@ export default styled.div`
     margin: ${({ theme }) => theme.body.margin};
     padding: ${({ theme }) => theme.body.padding};
     background: ${({ theme }) => theme.colors.background};
-  }
-
-  html {
-    overflow-x: hidden;
-    width: 100vw;
   }
 
   @media screen and (min-width: 576px) {

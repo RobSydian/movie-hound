@@ -9,6 +9,7 @@ import DropdownMenu from './UI/DropdownMenu';
 export default () => {
   const { currentUser } = useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
+  const [toggled, setToggled] = useState(false);
   // useEffect(() => {
 
   // }, [currentUser]);
@@ -21,38 +22,52 @@ export default () => {
   const showDropdownHandler = () => {
     setShowDropdown(!showDropdown);
   };
+  const toggleHandler = () => {
+    setToggled(!toggled);
+  };
 
   return (
-    <StyledHeader>
+    <StyledHeader isToggled={toggled}>
       <nav>
         <div className="logo">
           <Link to="/">
             <img src={Logo} alt="movies hound logo" />
           </Link>
         </div>
+        <div
+          className={`burger ${toggled ? 'toggled' : ''}`}
+          onClick={toggleHandler}
+        >
+          <div className="menu-button"></div>
+          <div className="menu-button"></div>
+          <div className="menu-button"></div>
+        </div>
         <ul className="navigation">
-          <li>
-            <Link to="/discover" className="section">
-              Discover
-            </Link>
-          </li>
-          <li>
-            {currentUser && (
-              <Link to="/my-list" className="section">
-                My List
-              </Link>
-            )}
-          </li>
-          <li>
-            <Link to="/genres" className="section">
-              Genres
-            </Link>
-          </li>
           <li>
             <Link to="/search">
               <FaSistrix />
             </Link>
           </li>
+          <li>
+            <Link to="/discover" className="section">
+              Discover
+            </Link>
+          </li>
+          {/* <li> */}
+          {currentUser && (
+            <li>
+              <Link to="/my-list" className="section">
+                My List
+              </Link>
+            </li>
+          )}
+          {/* </li> */}
+          <li>
+            <Link to="/genres" className="section">
+              Genres
+            </Link>
+          </li>
+
           {!currentUser ? (
             <>
               <li>
