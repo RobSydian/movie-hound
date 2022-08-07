@@ -55,7 +55,7 @@ export default function RecommendationSection({ recommendedMovies }) {
 
   return (
     <StyledRecommendationSection url={profileImageUrl}>
-      <Parallax translateY={[-20, 10]} translateX={[-20, 20]}>
+      <Parallax translateY={[-15, 10]} translateX={[-25, 20]}>
         <section className="recommendation-section">
           <div className="top-container">
             <div className="titleSection">
@@ -63,8 +63,8 @@ export default function RecommendationSection({ recommendedMovies }) {
               <div className="body-container">
                 {/* <p className="description">"{movie?.overview}"</p> */}
                 <p className="description">
-                  {movie?.overview.length > 300
-                    ? `${movie?.overview.substring(0, 300)}...`
+                  {movie?.overview.length > 250
+                    ? `${movie?.overview.substring(0, 250)}...`
                     : movie?.overview}
                 </p>
                 <Link to={'/details/' + movie?.id}>
