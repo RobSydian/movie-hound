@@ -5,7 +5,7 @@ const StyledCarouselControls = styled.div`
   overflow: visible;
   justify-content: space-between;
   position: relative;
-  top: 250px;
+  top: 190px;
 
   & > button {
     background-color: rgba(0, 0, 0, 0.5);
@@ -17,6 +17,10 @@ const StyledCarouselControls = styled.div`
 
   & > button:hover {
     background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  @media screen and (min-width: 992px) {
+    top: 250px;
   }
 `;
 

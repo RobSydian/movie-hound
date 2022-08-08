@@ -7,7 +7,7 @@ const StyledCarousel = styled.div`
 
   #content {
     margin: 1%;
-    transform: translateX(${({ index }) => `-${index * 18}%`});
+    transform: translateX(${({ index }) => `-${index * 60}%`});
     white-space: nowrap;
     transition: transform 0.3s;
   }
@@ -35,6 +35,10 @@ const StyledCarousel = styled.div`
       width: 300px;
       /* height: 450px; */
       color: ${({ theme }) => theme.colors.text};
+    }
+
+    #content {
+      transform: translateX(${({ index }) => `-${index * 18}%`});
     }
   }
 `;
