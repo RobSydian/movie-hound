@@ -42,9 +42,14 @@ const StyledHeader = styled.div`
     background-color: ${({ theme }) => theme.colors.background};
   }
 
-  .navigation li {
+  .navigation li,
+  .dropdown-icon {
     list-style: none;
     margin: 0.5em;
+  }
+
+  .dropdown-icon {
+    align-self: center;
   }
 
   .navigation a {

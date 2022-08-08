@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Logout from '../Logout';
 import StyledDropdownMenu from '../styles/StyledDropdownMenu';
 
-export default function DropdownMenu({ items }) {
+export default function DropdownMenu({ items, clickItemHandler }) {
   return (
     <StyledDropdownMenu>
       <div className="dropdown-container">
@@ -14,11 +14,12 @@ export default function DropdownMenu({ items }) {
               key={item.id}
               id={item.id}
               className="dropdown-item"
+              onClick={clickItemHandler}
             >
               {item.name}
             </Link>
           ) : (
-            <Logout />
+            item.ref
           )
         )}
       </div>

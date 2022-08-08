@@ -5,6 +5,7 @@ import Logo from '../images/moviehoundlogo.png';
 import StyledHeader from './styles/StyledHeader';
 import { useAuth } from '../contexts/AuthContext';
 import DropdownMenu from './UI/DropdownMenu';
+import Logout from './Logout';
 
 export default () => {
   const { currentUser } = useAuth();
@@ -16,13 +17,15 @@ export default () => {
 
   const userDropdownItems = [
     { id: 'i0', name: 'My profile', ref: '/update-profile' },
-    { id: 'i2', name: 'Logout', ref: '' },
+    { id: 'i1', name: 'Logout', ref: <Logout /> },
   ];
 
   const showDropdownHandler = () => {
     setShowDropdown(!showDropdown);
   };
+
   const toggleHandler = () => {
+    console.log('clicked toggle');
     setToggled(!toggled);
   };
 
@@ -44,26 +47,26 @@ export default () => {
         </div>
         <ul className="navigation">
           <li>
-            <Link to="/search">
+            <Link to="/search" onClick={toggleHandler}>
               <FaSistrix />
             </Link>
           </li>
           <li>
-            <Link to="/discover" className="section">
+            <Link to="/discover" className="section" onClick={toggleHandler}>
               Discover
             </Link>
           </li>
           {/* <li> */}
           {currentUser && (
             <li>
-              <Link to="/my-list" className="section">
+              <Link to="/my-list" className="section" onClick={toggleHandler}>
                 My List
               </Link>
             </li>
           )}
           {/* </li> */}
           <li>
-            <Link to="/genres" className="section">
+            <Link to="/genres" className="section" onClick={toggleHandler}>
               Genres
             </Link>
           </li>
@@ -71,12 +74,12 @@ export default () => {
           {!currentUser ? (
             <>
               <li>
-                <Link to="/signup" className="section">
+                <Link to="/signup" className="section" onClick={toggleHandler}>
                   Signup
                 </Link>
               </li>
               <li>
-                <Link to="/Login" className="section">
+                <Link to="/Login" className="section" onClick={toggleHandler}>
                   Login
                 </Link>
               </li>
@@ -86,7 +89,12 @@ export default () => {
               <div className="dropdown-icon" onClick={showDropdownHandler}>
                 <FaUserSecret />
               </div>
-              {showDropdown && <DropdownMenu items={userDropdownItems} />}
+              {showDropdown && (
+                <DropdownMenu
+                  items={userDropdownItems}
+                  clickItemHandler={toggleHandler}
+                />
+              )}
             </>
           )}
         </ul>

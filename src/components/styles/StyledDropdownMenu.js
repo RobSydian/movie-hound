@@ -6,10 +6,10 @@ const StyledDropdownMenu = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: absolute;
-    top: 5rem;
-    right: 0;
-    z-index: 100;
+    position: relative;
+    top: 0;
+    left: 2rem;
+    z-index: 999;
     background-color: rgba(0, 0, 0, 0.5);
     width: 10rem;
   }
@@ -17,6 +17,29 @@ const StyledDropdownMenu = styled.div`
   .dropdown-item {
     margin: 1rem;
     color: white;
+    z-index: 999;
+  }
+
+  @media screen and (min-width: 992px) {
+    .dropdown-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: absolute;
+      top: 5rem;
+      left: unset;
+      right: 0;
+      z-index: 999;
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 10rem;
+    }
+
+    .dropdown-item {
+      margin: 1rem;
+      color: white;
+      z-index: 999;
+    }
   }
 `;
 

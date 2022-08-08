@@ -7,6 +7,7 @@ const StyledButton = styled.button`
   border-radius: 1rem;
   font-family: ${({ theme }) => theme.fonts.primary};
   size: ${({ theme }) => theme.fonts.textSize};
+  color: black;
 
   &.addToList {
     background-color: gold;
