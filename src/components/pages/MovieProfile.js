@@ -161,6 +161,12 @@ export default () => {
               })}
             </p>
             <div className={hasVideo ? 'detailBoard' : 'detailBoardNoVid'}>
+              <div className="highlightedData">
+                <p>Duration: {movie.runtime}m</p>
+              </div>
+              <div className="highlightedData">
+                <p>Released: {movie.release_date}</p>
+              </div>
               {hasVideo && (
                 <div className="progressBarContainer">
                   <ProgressProvider
@@ -178,10 +184,6 @@ export default () => {
                   </ProgressProvider>
                 </div>
               )}
-              <div className="highlightedData">Duration: {movie.runtime}m</div>
-              <div className="highlightedData">
-                Release date: {movie.release_date}
-              </div>
             </div>
             <div className="body-container">
               <p className="description">"{movie.overview}"</p>
@@ -196,8 +198,8 @@ export default () => {
                     className={frameClasses}
                     src={`${video_base_url}${video.results[0].key}?wmode=opaque`}
                     frameBorder="0"
-                    width="600"
-                    height="350"
+                    width="100%"
+                    // height="350"
                     allow="autoplay; encrypted-media"
                     allowFullScreen
                     title="video"

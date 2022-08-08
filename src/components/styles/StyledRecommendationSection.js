@@ -46,7 +46,7 @@ const StyledRecommendationSection = styled.div`
   }
   .body-container,
   .titleSection p {
-    font-size: ${({ theme }) => theme.fonts.textSize};
+    /* font-size: ${({ theme }) => theme.fonts.textSize}; */
   }
 
   .genres {
@@ -91,7 +91,7 @@ const StyledRecommendationSection = styled.div`
     }
     .body-container,
     .titleSection p {
-      font-size: ${({ theme }) => theme.fonts.textSize};
+      /* font-size: ${({ theme }) => theme.fonts.textSize}; */
     }
 
     .genres {

@@ -8,13 +8,18 @@ const StyledProductionCompaniesPanel = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   img {
-    width: ${({ width }) => width};
+    width: 100px;
   }
 
-
+  @media screen and (min-width: 992px) {
+    img {
+      width: ${({ companyWidth }) => companyWidth};
+    }
+  }
 `;
 
 export default StyledProductionCompaniesPanel;

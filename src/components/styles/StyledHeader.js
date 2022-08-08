@@ -116,7 +116,7 @@ const StyledHeader = styled.div`
       align-content: flex-end;
       padding-right: 0 5em 0 0s;
       /* width: auto; */
-      height: 4em;
+      height: 3.5em;
       margin: 0;
     }
   }

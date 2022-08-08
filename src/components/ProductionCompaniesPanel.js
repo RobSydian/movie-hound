@@ -4,19 +4,21 @@ import StyledProductionCompaniesPanel from './styles/StyledProductionCompaniesPa
 export default ({ companies, width }) => {
   const image_base_url = 'https://image.tmdb.org/t/p/original';
   return (
-    <StyledProductionCompaniesPanel>
+    <StyledProductionCompaniesPanel companyWidth={width}>
       <section>
         {companies.map((company) =>
           company.logo_path ? (
             <div key={company.id}>
               <img
-                width={width}
+                // width={width}
                 src={`${image_base_url}${company.logo_path}`}
                 alt={company.name}
                 title={company.name}
               />
             </div>
-          ) : <div key={company.id}></div>
+          ) : (
+            <div key={company.id}></div>
+          )
         )}
       </section>
     </StyledProductionCompaniesPanel>

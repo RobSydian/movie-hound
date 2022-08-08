@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-  margin: 1.5rem;
+  margin: 0.5rem;
   padding: 1rem;
   border: none;
   border-radius: 1rem;
@@ -53,6 +53,10 @@ const StyledButton = styled.button`
 
   &.secondaryButton:hover {
     background-color: darkgrey;
+  }
+
+  @media screen and (min-width: 992px) {
+    margin: 1.5rem;
   }
 `;
 
