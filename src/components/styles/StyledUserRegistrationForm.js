@@ -6,6 +6,7 @@ const StyledUserRegistrationForm = styled.div`
   align-items: center;
   font-family: ${({ theme }) => theme.fonts.primary};
   color: ${({ theme }) => theme.colors.text};
+  flex-wrap: wrap;
 
   .formContainer {
     border: 1px solid gold;
