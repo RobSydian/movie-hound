@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledMovieProfile = styled.div`
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.primary};
-  min-height: 100vh;
+  min-height: 80vh;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(${({ url }) => url});
   background-position: center; /* Center the image */
@@ -99,8 +99,6 @@ const StyledMovieProfile = styled.div`
   }
 
   @media screen and (min-width: 992px) {
-    min-height: 80vh;
-
     .full-container {
       width: auto;
       padding: 2% 15% 0 10%;
