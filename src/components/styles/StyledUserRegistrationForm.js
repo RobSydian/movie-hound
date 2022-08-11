@@ -56,6 +56,11 @@ const StyledUserRegistrationForm = styled.div`
   a:hover {
     color: goldenrod;
   }
+
+  @media screen and (min-width: 992px) {
+    margin: auto;
+    width: 35%;
+  }
 `;
 
 export default StyledUserRegistrationForm;

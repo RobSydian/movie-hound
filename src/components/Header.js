@@ -25,8 +25,11 @@ export default () => {
   };
 
   const toggleHandler = () => {
-    console.log('clicked toggle');
     setToggled(!toggled);
+
+    if (showDropdown) {
+      setShowDropdown(false);
+    }
   };
 
   return (
@@ -38,14 +41,12 @@ export default () => {
           </Link>
         </div>
         <div
-          className={`burger ${toggled ? 'toggled' : ''}`}
+          className={`menu-button ${toggled ? 'toggled' : ''}`}
           onClick={toggleHandler}
         >
-          <div className="menu-button"></div>
-          <div className="menu-button"></div>
-          <div className="menu-button"></div>
+          <div className="menu-button__burger"></div>
         </div>
-        <ul className="navigation">
+        <ul className={`navigation ${toggled ? 'toggled' : ''}`}>
           <li>
             <Link to="/search" onClick={toggleHandler}>
               <FaSistrix />
@@ -91,6 +92,7 @@ export default () => {
               </div>
               {showDropdown && (
                 <DropdownMenu
+                  showDropdownFunction={showDropdownHandler}
                   items={userDropdownItems}
                   clickItemHandler={toggleHandler}
                 />
