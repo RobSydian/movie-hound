@@ -31,7 +31,6 @@ export default () => {
 
   useEffect(() => {
     dispatch(mobileStateActions.isMobile(checkMobileState));
-    console.log(checkMobileState);
     window.addEventListener('resize', handleResize);
   }, [mobileState]);
 
