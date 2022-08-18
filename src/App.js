@@ -10,29 +10,32 @@ import { doc, setDoc } from 'firebase/firestore';
 import { auth, db, getUsersFavList } from './firebase';
 import { addToListActions } from './store/fav-movie-list-handler-slice';
 import { useAuth } from './contexts/AuthContext';
+import useCheckMobileScreen from './hooks/useCheckMobileScreen';
+import { mobileStateActions } from './store/mobile-state-slice';
 
 export default () => {
   const userList = useSelector((state) => state.handleList.moviesList);
-  const [isMobile, setIsMobile] = useState(false);
+  const mobileState = useSelector((state) => state.handleMobile.isMobile);
 
   const dispatch = useDispatch();
   const { currentUser } = useAuth();
+  const checkMobileState = useCheckMobileScreen();
 
   const handleResize = () => {
     if (window.innerWidth < 720) {
-      setIsMobile(true);
+      dispatch(mobileStateActions.isMobile(true));
     } else {
-      setIsMobile(false);
+      dispatch(mobileStateActions.isMobile(false));
     }
-    console.log(isMobile);
   };
 
   useEffect(() => {
+    dispatch(mobileStateActions.isMobile(checkMobileState));
+    console.log(checkMobileState);
     window.addEventListener('resize', handleResize);
-  }, []);
+  }, [mobileState]);
 
   useEffect(() => {
-    // window.addEventListener('resize', handleResize);
     if (currentUser) {
       getUsersFavList().then((res) => {
         res.map((mov) => dispatch(addToListActions.addMovie(mov)));
