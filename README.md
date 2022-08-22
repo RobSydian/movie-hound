@@ -1,4 +1,4 @@
-#Welcome to Movie Hound!
+# Welcome to Movie Hound!
 
 Movie Hound allows you to browse movies by popularity or genre. If you create an account, you can add the movies to your personal list and create a plan for your cinema going. 
 
