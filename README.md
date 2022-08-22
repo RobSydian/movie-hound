@@ -1,3 +1,7 @@
+#Welcome to Movie Hound!
+
+Movie Hound allows you to browse movies by popularity or genre. If you create an account, you can add the movies to your personal list and create a plan for your cinema going. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
